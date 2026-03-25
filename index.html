@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Ouro Motos - Maior Estoque da Região</title>
+    <title>Ouro Motos | Motos, Carros, Quadriciclos e Aluguel</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts com tipografia mais moderna -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -26,7 +25,6 @@
             --texto-dark: #1A2C3E;
             --shadow-3d: 0 25px 40px -12px rgba(0, 0, 0, 0.25);
             --shadow-flutuante: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
-            --glow-azul: 0 0 20px rgba(0, 119, 255, 0.3);
         }
 
         body {
@@ -41,7 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* Background com partículas animadas */
         body::before {
             content: '';
             position: fixed;
@@ -80,7 +77,7 @@
             }
         }
 
-        /* Hero com motion e foto da moto destaque */
+        /* Hero com motion e foto destaque_moto.jpg (nome original) */
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, var(--azul-profundo) 0%, #0A3B6E 50%, var(--vermelho-energia) 100%);
@@ -94,7 +91,6 @@
             justify-content: center;
         }
 
-        /* Imagem de fundo da moto destaque */
         .hero-bg-moto {
             position: absolute;
             top: 0;
@@ -102,7 +98,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.28;
+            opacity: 0.3;
             mix-blend-mode: overlay;
             animation: zoomSlow 12s ease-in-out infinite alternate;
         }
@@ -128,15 +124,15 @@
         }
 
         .hero-badge {
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.55);
             backdrop-filter: blur(12px);
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 8px 24px;
+            padding: 10px 28px;
             border-radius: 60px;
             font-weight: 800;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: white;
             border: 1px solid var(--ouro-brilho);
             position: relative;
@@ -150,18 +146,42 @@
             50% { box-shadow: 0 0 0 8px rgba(245,166,35,0); }
         }
 
+        .hero-text-impact {
+            position: relative;
+            z-index: 3;
+            margin-top: 16px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 40px;
+            padding: 12px 18px;
+            display: inline-block;
+            width: auto;
+        }
+
+        .hero-text-impact p {
+            color: white;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-text-impact i {
+            color: var(--ouro-brilho);
+            margin-right: 6px;
+        }
+
         /* Conteúdo principal */
         .main-content {
             padding: 28px 20px 32px;
             background: var(--cinza-premium);
         }
 
-        /* Botões principais com movimento */
+        /* Botões principais */
         .double-actions {
             display: flex;
             flex-direction: column;
             gap: 14px;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
         .btn-motion {
@@ -213,14 +233,60 @@
             box-shadow: 0 12px 25px -8px rgba(37,184,92,0.5);
         }
 
-        /* Seção de Peças e Acessórios - Centralizada com botões WhatsApp individuais */
+        /* Facilidades (formas de pagamento) - logo abaixo do hero */
+        .facilidades-premium {
+            background: linear-gradient(125deg, var(--azul-profundo), #0E3E6B);
+            border-radius: 32px;
+            padding: 18px 16px;
+            margin: 8px 0 24px 0;
+            color: white;
+            box-shadow: var(--shadow-flutuante);
+            transition: all 0.3s;
+            animation: slideUp 0.6s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .facilidades-premium h3 {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 14px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .grid-facilidades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .badge-facil {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(4px);
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Seção de Peças e Acessórios - Totalmente alinhada */
         .pecas-section {
             background: var(--branco-puro);
             border-radius: 36px;
             padding: 20px 16px;
             margin: 20px 0 24px;
             box-shadow: var(--shadow-flutuante);
-            transition: all 0.3s;
         }
 
         .titulo-central {
@@ -261,6 +327,7 @@
         .whats-item-central:nth-child(2) { animation-delay: 0.1s; }
         .whats-item-central:nth-child(3) { animation-delay: 0.15s; }
         .whats-item-central:nth-child(4) { animation-delay: 0.2s; }
+        .whats-item-central:nth-child(5) { animation-delay: 0.25s; }
 
         @keyframes slideIn {
             from {
@@ -281,7 +348,7 @@
 
         .cidade-nome {
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--azul-profundo);
             display: flex;
             align-items: center;
@@ -290,14 +357,14 @@
 
         .btn-whats-solo {
             background: #25D366;
-            padding: 10px 24px;
+            padding: 8px 22px;
             border-radius: 50px;
             color: white;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             text-decoration: none;
             transition: all 0.2s;
             box-shadow: 0 5px 12px rgba(37,211,102,0.3);
@@ -307,17 +374,21 @@
             transform: scale(0.94);
         }
 
-        /* Galeria com modal de clique para ampliar */
+        /* Galeria interativa */
         .galeria-interativa {
             margin: 28px 0 20px;
         }
 
         .galeria-titulo {
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-align: center;
             margin-bottom: 18px;
             color: var(--azul-profundo);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .grid-fotos {
@@ -351,7 +422,7 @@
             transform: scale(1.08);
         }
 
-        /* Modal para ampliar foto */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -364,14 +435,12 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            animation: fadeModal 0.2s;
         }
 
         .modal img {
             max-width: 90%;
             max-height: 90%;
             border-radius: 24px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
             animation: zoomIn 0.3s;
         }
 
@@ -380,7 +449,7 @@
             to { transform: scale(1); opacity: 1; }
         }
 
-        /* Cards de diferenciais */
+        /* Diferenciais */
         .diferenciais {
             background: linear-gradient(125deg, var(--azul-profundo), #0A3F6E);
             border-radius: 32px;
@@ -388,7 +457,6 @@
             margin: 24px 0 20px;
             color: white;
             box-shadow: var(--shadow-flutuante);
-            transition: all 0.3s;
         }
 
         .diferenciais h3 {
@@ -409,29 +477,22 @@
             backdrop-filter: blur(4px);
         }
 
-        /* Formas de pagamento grid */
-        .pagamentos {
-            background: white;
-            border-radius: 28px;
-            padding: 16px;
+        /* Aluguel */
+        .aluguel-card {
+            background: linear-gradient(95deg, #2C3E50, #1A2C3E);
+            border-radius: 32px;
+            padding: 18px;
             margin: 20px 0;
-        }
-
-        .grid-pagamento {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
             flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 12px;
+            gap: 12px;
         }
 
-        .tag-pagamento {
-            background: #EFF3FC;
-            padding: 8px 16px;
-            border-radius: 40px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--azul-profundo);
+        .aluguel-text {
+            color: white;
+            font-weight: 700;
         }
 
         .horario {
@@ -459,11 +520,14 @@
 
 <div class="app-container">
     <div class="hero-section">
-        <!-- Imagem da moto destaque.jpg (conforme solicitado) -->
-        <img src="destaque moto.jpg" alt="Moto Destaque Ouro Motos" class="hero-bg-moto" onerror="this.src='https://placehold.co/800x600/0A2F5A/white?text=MOTO+DESTAQUE'">
+        <!-- Imagem destaque_moto.jpg (exatamente o nome do seu arquivo original) -->
+        <img src="destaque_moto.jpg" alt="Moto Destaque Ouro Motos" class="hero-bg-moto" onerror="this.src='https://placehold.co/800x600/0A2F5A/white?text=MOTO+DESTAQUE'">
         <img src="logo.png" alt="Ouro Motos" class="logo" onerror="this.src='https://placehold.co/300x100/FFFFFF/0A2F5A?text=OURO+MOTOS'">
         <div class="hero-badge">
-            <i class="fas fa-gem"></i> 25 ANOS • MAIOR ESTOQUE DA REGIÃO
+            <i class="fas fa-gem"></i> MAIS DE 25 ANOS DE TRADIÇÃO
+        </div>
+        <div class="hero-text-impact">
+            <p><i class="fas fa-trophy"></i> 🏆 O MAIOR E MAIS COMPLETO ESTOQUE DE MOTOS, CARROS E QUADRICICLOS DA REGIÃO! 🏆</p>
         </div>
     </div>
 
@@ -473,12 +537,25 @@
             <a href="http://www.ouromotos.com.br" class="btn-motion" target="_blank">
                 <i class="fas fa-motorcycle"></i> VER ESTOQUE COMPLETO
             </a>
-            <a href="https://wa.me/5531987512118?text=Olá%20Equipe%20de%20Vendas!%20Quero%20uma%20moto!" class="btn-motion btn-whats-vendas" target="_blank">
-                <i class="fab fa-whatsapp"></i> EQUIPE DE VENDAS • MOTOS
+            <a href="https://wa.me/5531987512118?text=Olá%20Equipe%20de%20Vendas!%20Quero%20uma%20moto%20ou%20carro!" class="btn-motion btn-whats-vendas" target="_blank">
+                <i class="fab fa-whatsapp"></i> EQUIPE DE VENDAS • MOTOS E CARROS
             </a>
         </div>
 
-        <!-- PEÇAS E ACESSÓRIOS - Centralizado, apenas cidade + botão WhatsApp -->
+        <!-- FACILIDADES QUE IMPULSIONAM (formas de pagamento) - logo abaixo dos botões -->
+        <div class="facilidades-premium">
+            <h3><i class="fas fa-rocket"></i> FACILIDADES QUE IMPULSIONAM</h3>
+            <div class="grid-facilidades">
+                <span class="badge-facil"><i class="fas fa-credit-card"></i> Cartão até 24x</span>
+                <span class="badge-facil"><i class="fas fa-building"></i> Financiamento até 48x</span>
+                <span class="badge-facil"><i class="fas fa-hand-holding-usd"></i> Sem entrada*</span>
+                <span class="badge-facil"><i class="fas fa-handshake"></i> Consórcio</span>
+                <span class="badge-facil"><i class="fas fa-exchange-alt"></i> Pegamos seu veículo usado na troca</span>
+                <span class="badge-facil"><i class="fas fa-car"></i> Aceitamos seu veículo como parte do pagamento</span>
+            </div>
+        </div>
+
+        <!-- PEÇAS E ACESSÓRIOS - Centralizado e alinhado -->
         <div class="pecas-section">
             <div class="titulo-central">
                 <i class="fas fa-tools" style="color: var(--vermelho-energia);"></i>
@@ -487,34 +564,35 @@
             <div class="grid-whats-central">
                 <div class="whats-item-central">
                     <div class="cidade-nome"><i class="fas fa-location-dot" style="color: var(--ouro-brilho);"></i> Ouro Preto</div>
-                    <a href="https://wa.me/553135512202?text=Olá!%20Gostaria%20de%20peças%20e%20acessórios%20em%20Ouro%20Preto." class="btn-whats-solo" target="_blank">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
+                    <a href="https://wa.me/553135512202?text=Olá!%20Peças%20e%20acessórios%20em%20Ouro%20Preto." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
                 <div class="whats-item-central">
                     <div class="cidade-nome"><i class="fas fa-location-dot" style="color: var(--ouro-brilho);"></i> Ouro Branco</div>
-                    <a href="https://wa.me/5531995493207?text=Olá!%20Preciso%20de%20peças%20em%20Ouro%20Branco." class="btn-whats-solo" target="_blank">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
+                    <a href="https://wa.me/5531995493207?text=Olá!%20Peças%20em%20Ouro%20Branco." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
                 <div class="whats-item-central">
                     <div class="cidade-nome"><i class="fas fa-location-dot" style="color: var(--ouro-brilho);"></i> Mariana</div>
-                    <a href="https://wa.me/553135582215?text=Olá!%20Peças%20e%20acessórios%20em%20Mariana." class="btn-whats-solo" target="_blank">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
+                    <a href="https://wa.me/553135582215?text=Olá!%20Peças%20Mariana." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
                 <div class="whats-item-central">
                     <div class="cidade-nome"><i class="fas fa-location-dot" style="color: var(--ouro-brilho);"></i> Itabirito</div>
-                    <a href="https://wa.me/5531988647364?text=Olá!%20Peças%20Itabirito." class="btn-whats-solo" target="_blank">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
+                    <a href="https://wa.me/5531988647364?text=Olá!%20Peças%20Itabirito." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
             </div>
         </div>
 
-        <!-- Galeria interativa (clique amplia) -->
+        <!-- ALUGUEL DE MOTOS E CARROS (novo serviço) -->
+        <div class="aluguel-card">
+            <div class="aluguel-text">
+                <i class="fas fa-key"></i> <strong>ALUGUEL DE MOTOS E CARROS</strong><br>
+                <span style="font-size:0.75rem;">Diárias especiais, consulte condições</span>
+            </div>
+            <a href="https://wa.me/5531992247414?text=Olá!%20Quero%20informações%20sobre%20ALUGUEL%20de%20motos%20e%20carros." class="btn-whats-solo" target="_blank" style="background:#25D366; margin:0;"><i class="fab fa-whatsapp"></i> Aluguel WhatsApp</a>
+        </div>
+
+        <!-- GALERIA (antes era "Nosso Espaço") -->
         <div class="galeria-interativa">
-            <div class="galeria-titulo"><i class="fas fa-camera"></i> NOSSO ESPAÇO</div>
+            <div class="galeria-titulo"><i class="fas fa-images"></i> GALERIA • NOSSA ESTRUTURA</div>
             <div class="grid-fotos">
                 <div class="foto-card" onclick="abrirModal(this)">
                     <img src="fachada_op.jpg" alt="Fachada Ouro Preto" onerror="this.src='https://placehold.co/400x300/0A2F5A/white?text=FACHADA+OP'">
@@ -531,26 +609,13 @@
             </div>
         </div>
 
-        <!-- Diferenciais + Convencimento -->
+        <!-- Diferenciais -->
         <div class="diferenciais">
             <h3><i class="fas fa-crown"></i> POR QUE ESCOLHER A OURO MOTOS?</h3>
-            <div class="badge-diferencial"><i class="fas fa-boxes"></i> ✅ Maior estoque de motos e peças da região</div>
-            <div class="badge-diferencial"><i class="fas fa-handshake"></i> ✅ 25 anos de tradição e credibilidade</div>
-            <div class="badge-diferencial"><i class="fas fa-exchange-alt"></i> ✅ Compramos sua moto usada na troca</div>
-            <div class="badge-diferencial"><i class="fas fa-car"></i> ✅ Aceitamos carros como parte de pagamento</div>
-        </div>
-
-        <!-- Formas de pagamento -->
-        <div class="pagamentos">
-            <div style="text-align: center; font-weight: 800; font-size: 1.1rem;"><i class="fas fa-credit-card"></i> FACILIDADES QUE IMPULSIONAM</div>
-            <div class="grid-pagamento">
-                <span class="tag-pagamento">💳 Cartão até 24x</span>
-                <span class="tag-pagamento">🏦 Financiamento até 48x</span>
-                <span class="tag-pagamento">💰 Sem entrada*</span>
-                <span class="tag-pagamento">🤝 Consórcio contemplável</span>
-                <span class="tag-pagamento">🔄 Troca com avaliação justa</span>
-                <span class="tag-pagamento">🚗 Motos e carros aceitos</span>
-            </div>
+            <div class="badge-diferencial"><i class="fas fa-boxes"></i> ✅ Maior estoque de motos, carros e quadriciclos da região</div>
+            <div class="badge-diferencial"><i class="fas fa-handshake"></i> ✅ 25+ anos de tradição e credibilidade</div>
+            <div class="badge-diferencial"><i class="fas fa-exchange-alt"></i> ✅ Pegamos seu veículo usado na troca (moto ou carro)</div>
+            <div class="badge-diferencial"><i class="fas fa-motorcycle"></i> ✅ Venda de quadriciclos e aluguel de motos/carros</div>
         </div>
 
         <!-- Horário de atendimento -->
