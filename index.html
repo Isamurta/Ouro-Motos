@@ -22,7 +22,7 @@
             --ouro-brilho: #F5A623;
             --cinza-premium: #F8FAFE;
             --branco-puro: #FFFFFF;
-            --verde-destaque: #2DCC70;
+            --verde-destaque: #25D366;
             --shadow-3d: 0 25px 40px -12px rgba(0, 0, 0, 0.25);
             --shadow-flutuante: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
         }
@@ -108,19 +108,65 @@
             100% { transform: scale(1.08); }
         }
 
-        .logo {
-            max-width: 180px;
-            width: 65%;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-            margin-bottom: 12px;
+        /* Container da logo com efeito de destaque */
+        .logo-container {
             position: relative;
             z-index: 3;
-            animation: logoFloat 3s ease-in-out infinite;
+            margin-bottom: 12px;
+            display: inline-block;
         }
 
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-6px); }
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%;
+            height: 110%;
+            background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, transparent 80%);
+            border-radius: 50%;
+            filter: blur(12px);
+            z-index: -1;
+        }
+
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: -1;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(0.95);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        .logo {
+            max-width: 220px;
+            width: 75%;
+            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4)) brightness(1.05) contrast(1.05);
+            display: block;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
         }
 
         .hero-badge {
@@ -177,13 +223,13 @@
             position: relative;
             z-index: 3;
             margin-top: 12px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: white;
-            background: rgba(0,0,0,0.4);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.95);
+            background: rgba(0,0,0,0.35);
             backdrop-filter: blur(4px);
-            padding: 6px 18px;
-            border-radius: 40px;
+            padding: 5px 16px;
+            border-radius: 30px;
             display: inline-block;
         }
 
@@ -248,15 +294,31 @@
         .btn-whats-vendas {
             background: linear-gradient(95deg, #1A7A3A, #2DCC70);
             box-shadow: 0 12px 25px -8px rgba(37,184,92,0.5);
-            flex-direction: column;
-            gap: 6px;
-            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 20px;
         }
 
-        .btn-whats-vendas span {
+        .vendas-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .vendas-main {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+        }
+
+        .vendas-sub {
             font-size: 0.75rem;
             font-weight: 500;
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
         /* Facilidades Premium */
@@ -423,7 +485,7 @@
             transform: scale(0.94);
         }
 
-        /* Aluguel Card - Centralizado */
+        /* Aluguel Card */
         .aluguel-card {
             background: linear-gradient(95deg, #2C3E50, #1A2C3E);
             border-radius: 32px;
@@ -601,6 +663,7 @@
 
         @media (min-width: 550px) {
             .app-container { max-width: 520px; }
+            .logo { max-width: 240px; }
         }
     </style>
 </head>
@@ -609,7 +672,9 @@
 <div class="app-container">
     <div class="hero-section">
         <img src="destaque_moto.jpg" alt="Moto Destaque Ouro Motos" class="hero-bg-moto" onerror="this.src='https://placehold.co/800x600/0A2F5A/white?text=MOTO+DESTAQUE'">
-        <img src="logo.png" alt="Ouro Motos" class="logo" onerror="this.src='https://placehold.co/300x100/FFFFFF/0A2F5A?text=OURO+MOTOS'">
+        <div class="logo-container">
+            <img src="logo.png" alt="Ouro Motos" class="logo" onerror="this.src='https://placehold.co/400x120/FFFFFF/0A2F5A?text=OURO+MOTOS'">
+        </div>
         <div class="hero-badge">
             <i class="fas fa-gem"></i> MAIS DE 25 ANOS DE TRADIÇÃO
         </div>
@@ -617,7 +682,7 @@
             <p><i class="fas fa-trophy"></i> O MAIOR E MAIS COMPLETO ESTOQUE DE MOTOS DA REGIÃO!</p>
         </div>
         <div class="hero-sub">
-            <i class="fas fa-motorcycle"></i> VENDA DE MOTOS, CARROS E QUADRICICLOS
+            Venda de Motos, Carros e Quadriciclos
         </div>
     </div>
 
@@ -628,8 +693,11 @@
                 <i class="fas fa-motorcycle"></i> VER ESTOQUE COMPLETO
             </a>
             <a href="https://wa.me/5531987512118?text=Olá,%20gostaria%20de%20saber%20mais%20informações%20sobre%20a%20venda%20de%20veículos." class="btn-motion btn-whats-vendas" target="_blank">
-                <i class="fab fa-whatsapp"></i> EQUIPE DE VENDAS
-                <span>Motos e Carros</span>
+                <i class="fab fa-whatsapp"></i>
+                <div class="vendas-content">
+                    <div class="vendas-main">EQUIPE DE VENDAS</div>
+                    <div class="vendas-sub">Motos e Carros</div>
+                </div>
             </a>
         </div>
 
@@ -691,15 +759,15 @@
             </div>
         </div>
 
-        <!-- ALUGUEL -->
+        <!-- ALUGUEL - ALUGAR VEÍCULO -->
         <div class="aluguel-card">
             <div class="aluguel-text">
                 <i class="fas fa-key"></i>
-                <strong>ALUGUE SEU VEÍCULO</strong>
+                <strong>ALUGAR VEÍCULO</strong>
                 <span>Motos e Carros • Diárias especiais • Consulte condições</span>
             </div>
             <a href="https://wa.me/5531992247414?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20aluguel%20de%20motos%20e%20carros." class="btn-aluguel" target="_blank">
-                <i class="fab fa-whatsapp"></i> FALAR COM ALUGUEL
+                <i class="fab fa-whatsapp"></i> FALE E ALUGUE
             </a>
         </div>
 
