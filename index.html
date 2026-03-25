@@ -23,7 +23,6 @@
             --cinza-premium: #F8FAFE;
             --branco-puro: #FFFFFF;
             --verde-destaque: #2DCC70;
-            --roxo-diferencial: #9B59B6;
             --shadow-3d: 0 25px 40px -12px rgba(0, 0, 0, 0.25);
             --shadow-flutuante: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
         }
@@ -164,20 +163,28 @@
             font-weight: 800;
             font-size: 0.85rem;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .hero-text-impact i {
             color: var(--ouro-brilho);
-            margin-right: 6px;
         }
 
         .hero-sub {
             position: relative;
             z-index: 3;
-            margin-top: 10px;
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.9);
-            font-weight: 600;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            padding: 6px 18px;
+            border-radius: 40px;
+            display: inline-block;
         }
 
         /* Conteúdo principal */
@@ -241,9 +248,18 @@
         .btn-whats-vendas {
             background: linear-gradient(95deg, #1A7A3A, #2DCC70);
             box-shadow: 0 12px 25px -8px rgba(37,184,92,0.5);
+            flex-direction: column;
+            gap: 6px;
+            padding: 14px 16px;
         }
 
-        /* Facilidades Premium - Design mais bonito e organizado */
+        .btn-whats-vendas span {
+            font-size: 0.75rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* Facilidades Premium */
         .facilidades-premium {
             background: linear-gradient(125deg, #0A2F5A, #134B7A);
             border-radius: 32px;
@@ -305,6 +321,13 @@
         .badge-facil:hover {
             transform: translateY(-2px);
             background: rgba(255,255,255,0.2);
+        }
+
+        .asterisco {
+            text-align: center;
+            font-size: 0.65rem;
+            margin-top: 12px;
+            opacity: 0.8;
         }
 
         /* Seção de Peças e Acessórios */
@@ -591,10 +614,10 @@
             <i class="fas fa-gem"></i> MAIS DE 25 ANOS DE TRADIÇÃO
         </div>
         <div class="hero-text-impact">
-            <p><i class="fas fa-trophy"></i> 🏆 O MAIOR E MAIS COMPLETO ESTOQUE DE MOTOS DA REGIÃO! 🏆</p>
+            <p><i class="fas fa-trophy"></i> O MAIOR E MAIS COMPLETO ESTOQUE DE MOTOS DA REGIÃO!</p>
         </div>
         <div class="hero-sub">
-            <i class="fas fa-motorcycle"></i> Venda de Motos, Carros e Quadriciclos
+            <i class="fas fa-motorcycle"></i> VENDA DE MOTOS, CARROS E QUADRICICLOS
         </div>
     </div>
 
@@ -605,11 +628,12 @@
                 <i class="fas fa-motorcycle"></i> VER ESTOQUE COMPLETO
             </a>
             <a href="https://wa.me/5531987512118?text=Olá,%20gostaria%20de%20saber%20mais%20informações%20sobre%20a%20venda%20de%20veículos." class="btn-motion btn-whats-vendas" target="_blank">
-                <i class="fab fa-whatsapp"></i> EQUIPE DE VENDAS • MOTOS E CARROS
+                <i class="fab fa-whatsapp"></i> EQUIPE DE VENDAS
+                <span>Motos e Carros</span>
             </a>
         </div>
 
-        <!-- FACILIDADES QUE IMPULSIONAM - Design mais bonito e organizado -->
+        <!-- FACILIDADES QUE IMPULSIONAM -->
         <div class="facilidades-premium">
             <h3><i class="fas fa-rocket"></i> FACILIDADES QUE IMPULSIONAM</h3>
             <div class="grid-facilidades">
@@ -618,8 +642,8 @@
                 <div class="badge-facil"><i class="fas fa-hand-holding-usd"></i> Sem entrada*</div>
                 <div class="badge-facil"><i class="fas fa-handshake"></i> Consórcio</div>
                 <div class="badge-facil"><i class="fas fa-exchange-alt"></i> Pegamos seu veículo na troca</div>
-                <div class="badge-facil"><i class="fas fa-car"></i> Seu veículo como parte do pagamento</div>
             </div>
+            <div class="asterisco">*Sujeito a análise de crédito</div>
         </div>
 
         <!-- PEÇAS E ACESSÓRIOS -->
@@ -667,12 +691,12 @@
             </div>
         </div>
 
-        <!-- ALUGUEL - Centralizado com design harmonioso -->
+        <!-- ALUGUEL -->
         <div class="aluguel-card">
             <div class="aluguel-text">
                 <i class="fas fa-key"></i>
-                <strong>ALUGUEL DE MOTOS E CARROS</strong>
-                <span>Diárias especiais • Consulte as condições</span>
+                <strong>ALUGUE SEU VEÍCULO</strong>
+                <span>Motos e Carros • Diárias especiais • Consulte condições</span>
             </div>
             <a href="https://wa.me/5531992247414?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20aluguel%20de%20motos%20e%20carros." class="btn-aluguel" target="_blank">
                 <i class="fab fa-whatsapp"></i> FALAR COM ALUGUEL
