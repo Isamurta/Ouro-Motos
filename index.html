@@ -3,42 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ouro Motos - Link na Bio</title>
+    <title>Ouro Motos - Sua Máquina Te Espera!</title>
     <style>
-        :root { --azul: #004595; --vermelho: #e31d24; --branco: #ffffff; --verde-wpp: #25d366; --cinza-fundo: #f8f9fa; }
-        body { font-family: sans-serif; background-color: var(--cinza-fundo); margin: 0; display: flex; justify-content: center; padding: 20px; color: #333; }
-        .container { width: 100%; max-width: 400px; text-align: center; }
-        .logo { width: 220px; height: auto; margin-bottom: 15px; }
-        .badge { background: var(--azul); color: white; padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; display: inline-block; }
-        .btn { display: flex; align-items: center; justify-content: center; text-decoration: none; padding: 18px; margin-bottom: 14px; border-radius: 15px; font-weight: 800; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.2s; }
-        .btn-site { background: var(--vermelho); color: white; text-transform: uppercase; }
-        .btn-vendas { background: var(--verde-wpp); color: white; }
-        .section-title { margin: 30px 0 15px; font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 1.5px; }
-        .grid-servicos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .btn-servico { background: white; color: var(--azul); padding: 12px; font-size: 0.85rem; border: 1px solid #eee; flex-direction: column; }
-        .btn-servico span { font-size: 0.7rem; font-weight: normal; color: #666; }
+        /* Variáveis de Cores Premium */
+        :root {
+            --azul-vibrante: #007bff;
+            --azul-escuro: #004595;
+            --vermelho-vibrante: #ff1f1f;
+            --branco: #ffffff;
+            --cinza-fundo: #f8f9fa;
+        }
+
+        /* Estilos Globais e Mobile-First */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cinza-fundo);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 480px; /* Limite para Desktop */
+            background-color: var(--branco);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* Hero com Efeito de Luz e Fotos Integradas */
+        .hero {
+            background-image: linear-gradient(135deg, rgba(0,69,149,0.9) 0%, rgba(255,31,31,0.8) 100%), url('destaque_moto.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            color: var(--branco);
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            animation: lightEffect 5s infinite;
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .badge {
+            background-color: var(--vermelho-vibrante);
+            color: var(--branco);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 10;
+            display: inline-block;
+        }
+
+        /* Botões Flutuantes com Efeitos de Sombra */
+        .content {
+            padding: 30px 20px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:active {
+            transform: scale(0.97) translateY(2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .btn-site {
+            background: linear-gradient(135deg, var(--azul-vibrante), var(--azul-escuro));
+            color: var(--branco);
+        }
+
+        .btn-vendas {
+            background-color: #25d366;
+            color: var(--branco);
+        }
+
+        /* Seção Lojas com Fotos Integradas */
+        .section-title {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--azul-escuro);
+            margin: 40px 0 20px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .store-card {
+            background-color: #fcfcfc;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .store-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .btn-servico {
+            background-color: var(--branco);
+            color: var(--azul-escuro);
+            font-size: 0.85rem;
+            padding: 12px;
+            border: 1px solid #ddd;
+            width: 100%;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Animação do Efeito de Luz */
+        @keyframes lightEffect {
+            0% { transform: translateX(-10%) translateY(-10%); }
+            50% { transform: translateX(10%) translateY(10%); }
+            100% { transform: translateX(-10%) translateY(-10%); }
+        }
+
+        /* Responsividade para Desktop */
+        @media (min-width: 768px) {
+            .main-container {
+                max-width: 400px; /* Mantém com cara de mobile no desktop */
+            }
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <header>
+
+<div class="main-container">
+    <div class="hero">
         <img src="logo.png" alt="Ouro Motos" class="logo">
-        <br><div class="badge">🚀 25 ANOS DE TRADIÇÃO</div>
-    </header>
-
-    <a href="http://www.ouromotos.com.br" class="btn btn-site">🏍️ VER ESTOQUE COMPLETO</a>
-    <a href="https://wa.me/5531987512118" class="btn btn-vendas">📱 COMPRAR MINHA MOTO</a>
-
-    <div class="section-title">Peças, Acessórios e Oficina</div>
-    <div class="grid-servicos">
-        <a href="tel:553135512202" class="btn btn-servico">Ouro Preto<span>(31) 3551-2202</span></a>
-        <a href="https://wa.me/5531995493207" class="btn btn-servico">Ouro Branco<span>(31) 99549-3207</span></a>
-        <a href="tel:553135582215" class="btn btn-servico">Mariana<span>(31) 3558-2215</span></a>
-        <a href="https://wa.me/5531988647364" class="btn btn-servico">Itabirito<span>(31) 98864-7364</span></a>
+        <br>
+        <div class="badge">🚀 25 Anos de Tradição</div>
     </div>
 
-    <div class="section-title">Localização</div>
-    <a href="https://www.google.com/maps/search/Ouro+Motos" class="btn" style="background: #fff; color: #444;">📍 Lojas Físicas</a>
+    <div class="content">
+
+        <a href="http://www.ouromotos.com.br" class="btn btn-site" target="_blank">
+            🏍️ VER ESTOQUE COMPLETO
+        </a>
+
+        <a href="https://wa.me/5531987512118" class="btn btn-vendas" target="_blank">
+            💬 FALAR COM VENDAS MOTOS
+        </a>
+
+        <div class="section-title">Nossas Lojas e Serviços</div>
+
+        <div class="store-card">
+            <div class="store-gallery">
+                <img src="fachada_op.jpg" alt="Fachada Ouro Preto" class="gallery-img">
+                <img src="equipe_mariana.jpg" alt="Equipe Ouro Preto" class="gallery-img">
+                <img src="estoque_ob.jpg" alt="Estoque Ouro Branco" class="gallery-img">
+                <img src="patio_op.jpg" alt="Pátio Ouro Preto" class="gallery-img">
+            </div>
+            <a href="tel:553135512202" class="btn-servico">Ouro Preto: (31) 3551-2202</a>
+            <a href="https://wa.me/5531995493207" class="btn-servico">Ouro Branco: (31) 99549-3207</a>
+            <a href="tel:553135582215" class="btn-servico">Mariana: (31) 3558-2215</a>
+            <a href="https://wa.me/5531988647364" class="btn-servico">Itabirito: (31) 98864-7364</a>
+        </div>
+
+        <div class="section-title">Localização</div>
+        <a href="https://www.google.com/maps/search/Ouro+Motos" class="btn" style="background-color: var(--branco); color: #444;" target="_blank">
+            📍 Encontrar a loja mais próxima
+        </a>
+
+    </div>
 </div>
+
 </body>
 </html>
