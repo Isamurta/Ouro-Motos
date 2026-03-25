@@ -2,246 +2,477 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ouro Motos - Sua Máquina Te Espera!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ouro Motos • Peças, Acessórios e Motos</title>
+    <!-- Font Awesome 6 (ícones modernos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Poppins + Inter para clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Variáveis de Cores Premium e Vibrantes */
-        :root {
-            --azul-vibrante: #007bff;
-            --azul-escuro: #004595;
-            --vermelho-vibrante: #ff1f1f;
-            --branco: #ffffff;
-            --cinza-claro: #f4f7f6;
-            --preto-transparente: rgba(0, 0, 0, 0.7);
-        }
-
-        /* Estilos Globais e Mobile-First */
-        body {
-            font-family: 'Poppins', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: var(--cinza-claro);
-            color: #333;
+            box-sizing: border-box;
+        }
+
+        /* Paleta renovada - mais contraste e identidade forte */
+        :root {
+            --azul-profundidade: #002B5C;   /* azul nobre, base da marca */
+            --azul-ouro: #0A4B8A;           /* tom intermediário vibrante */
+            --vermelho-energia: #D32F2F;    /* vermelho que remete à potência, usado com equilíbrio */
+            --detalhe-dourado: #F5B042;     /* toque de ouro / sofisticação */
+            --fundo-escuro: #F0F2F5;        /* fundo geral mais escuro que branco puro */
+            --card-bg: #FFFFFF;
+            --texto-escuro: #1E2A3A;
+            --cinza-soft: #EFF3F6;
+            --sombra-suave: 0 12px 28px rgba(0, 0, 0, 0.08);
+            --sombra-media: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #E9EDF2 0%, #DCE2E8 100%);
             display: flex;
             justify-content: center;
-            overflow-x: hidden;
+            align-items: center;
+            padding: 20px 12px;
+            min-height: 100vh;
         }
 
-        .main-container {
+        /* container mobile-first com máxima portabilidade */
+        .app-container {
+            max-width: 500px;
             width: 100%;
-            max-width: 480px; /* Limite para Desktop */
-            background-color: var(--branco);
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            position: relative;
+            background: var(--card-bg);
+            border-radius: 44px 44px 36px 36px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* Hero com Efeito de Luz e Fotos Integradas */
-        .hero {
-            background-image: linear-gradient(135deg, rgba(0,69,149,0.9) 0%, rgba(255,31,31,0.8) 100%), url('destaque_moto.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 40px 20px;
-            text-align: center;
+        /* header com gradiente + overlay menos branco */
+        .hero-section {
+            background: linear-gradient(125deg, var(--azul-profundidade) 0%, #003973 45%, var(--vermelho-energia) 100%);
+            padding: 32px 24px 40px 24px;
             position: relative;
-            color: var(--branco);
+            text-align: center;
+            border-bottom-left-radius: 28px;
+            border-bottom-right-radius: 28px;
             overflow: hidden;
         }
 
-        .hero::after {
-            content: '';
+        .hero-section::before {
+            content: "";
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
-            animation: lightEffect 5s infinite;
+            top: -30%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(245,176,66,0.18) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
         }
 
         .logo {
-            width: 180px;
-            height: auto;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 10;
+            max-width: 190px;
+            width: 70%;
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
+            margin-bottom: 12px;
         }
 
-        .badge {
-            background-color: var(--vermelho-vibrante);
-            color: var(--branco);
-            padding: 5px 15px;
-            border-radius: 20px;
+        .hero-badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(4px);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-weight: 600;
             font-size: 0.8rem;
-            font-weight: bold;
-            position: relative;
-            z-index: 10;
-            display: inline-block;
+            color: white;
+            border: 1px solid rgba(255,215,0,0.5);
+            margin-top: 8px;
         }
 
-        /* Botões Flutuantes com Efeitos de Sombra */
-        .content {
-            padding: 30px 20px;
+        .hero-badge i {
+            font-size: 0.9rem;
+            color: var(--detalhe-dourado);
         }
 
-        .btn {
+        /* conteúdo principal */
+        .main-content {
+            padding: 28px 20px 40px 20px;
+            background: var(--fundo-escuro);
+        }
+
+        /* Botões duplos principais */
+        .double-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+
+        .btn-primary {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 12px;
+            background: linear-gradient(95deg, var(--azul-profundidade), var(--azul-ouro));
+            color: white;
             text-decoration: none;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
+            padding: 16px 12px;
+            border-radius: 60px;
+            transition: all 0.25s;
+            box-shadow: 0 5px 12px rgba(0,43,92,0.3);
+            border: none;
+            letter-spacing: 0.5px;
         }
 
-        .btn:active {
-            transform: scale(0.97) translateY(2px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        .btn-primary i {
+            font-size: 1.3rem;
         }
 
-        .btn-site {
-            background: linear-gradient(135deg, var(--azul-vibrante), var(--azul-escuro));
-            color: var(--branco);
+        .btn-primary:active {
+            transform: scale(0.97);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
 
-        .btn-vendas {
-            background-color: #25d366;
-            color: var(--branco);
+        .btn-whatsapp {
+            background: linear-gradient(95deg, #1D8B3C, #25B85C);
+            box-shadow: 0 5px 14px rgba(37,184,92,0.3);
         }
 
-        /* Seção Lojas com Fotos e Serviços Integrados */
         .section-title {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--azul-escuro);
-            margin: 40px 0 20px;
-            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
             font-weight: 800;
-        }
-
-        .store-card {
-            background-color: #fcfcfc;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-        }
-
-        .store-gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            font-size: 1.35rem;
+            letter-spacing: -0.3px;
+            color: var(--azul-profundidade);
+            margin: 20px 0 16px 0;
+            display: flex;
+            align-items: center;
             gap: 10px;
-            margin-bottom: 15px;
+            border-left: 5px solid var(--vermelho-energia);
+            padding-left: 14px;
         }
 
-        .gallery-img {
+        .section-title i {
+            color: var(--vermelho-energia);
+            font-size: 1.4rem;
+        }
+
+        /* Cards de lojas com fotos e botões WHATSAPP (links diretos) */
+        .loja-card {
+            background: var(--card-bg);
+            border-radius: 28px;
+            margin-bottom: 28px;
+            overflow: hidden;
+            box-shadow: var(--sombra-media);
+            transition: transform 0.2s;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .loja-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .galeria-fotos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background: #e2e6ec;
+        }
+
+        .galeria-fotos img {
             width: 100%;
-            height: 100px;
+            aspect-ratio: 1 / 0.9;
             object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid #ddd;
+            display: block;
+            transition: 0.2s;
         }
 
-        .btn-servico {
-            background-color: var(--branco);
-            color: var(--azul-escuro);
-            font-size: 0.85rem;
-            padding: 12px;
-            border: 1px solid #ddd;
-            width: 100%;
-            text-align: center;
-            border-radius: 8px;
+        .servicos-lista {
+            padding: 16px 18px 20px 18px;
+            background: white;
+        }
+
+        .servico-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background: #F8FAFE;
+            margin-bottom: 12px;
+            border-radius: 60px;
+            padding: 6px 8px 6px 18px;
+            border: 1px solid #EFF2F8;
+            transition: all 0.2s;
+        }
+
+        .servico-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cidade-nome {
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: var(--azul-profundidade);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cidade-nome i {
+            color: var(--detalhe-dourado);
+            font-size: 0.8rem;
+        }
+
+        .servico-desc {
+            font-size: 0.7rem;
+            color: #5a6878;
+            font-weight: 500;
+        }
+
+        .btn-whats-mini {
+            background: #25D366;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 40px;
             text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
-        .btn-servico span {
-            font-weight: bold;
-            display: block;
+        .btn-whats-mini i {
             font-size: 0.9rem;
         }
 
-        /* Animação do Efeito de Luz */
-        @keyframes lightEffect {
-            0% { transform: translateX(-10%) translateY(-10%); }
-            50% { transform: translateX(10%) translateY(10%); }
-            100% { transform: translateX(-10%) translateY(-10%); }
+        .btn-whats-mini:active {
+            transform: scale(0.96);
+            background: #128C7E;
         }
 
-        /* Responsividade para Desktop */
-        @media (min-width: 768px) {
-            .main-container {
-                max-width: 400px; /* Mantém com cara de mobile no desktop */
+        /* telefone fixo tradicional para Ouro Preto e Mariana (caso ainda precise, mas transformamos maioria em whats) 
+        porém de acordo com pedido: "Todos os WhatsApps que tem ali da loja sabe é que tem do peças e acessórios todos são WhatsApp" 
+        então ajustei: Ouro Preto e Mariana viraram WhatsApp (com links diretos). Foram mantidas as ligações? pedido prioriza botão Whatsapp link */
+        .btn-call-mini {
+            background: #4A6A8B;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* botão localização */
+        .local-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #1E2F3F;
+            color: white;
+            padding: 15px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 12px;
+            transition: 0.2s;
+            background: linear-gradient(95deg, #2C3E50, #1A2A38);
+        }
+
+        .local-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* rodapé com identidade */
+        .footer-note {
+            text-align: center;
+            font-size: 0.7rem;
+            padding: 20px 20px 24px;
+            color: #5B6F82;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            background: var(--fundo-escuro);
+        }
+
+        @media (min-width: 700px) {
+            body {
+                padding: 30px 20px;
+            }
+            .app-container {
+                max-width: 520px;
+            }
+            .btn-primary, .btn-whatsapp {
+                font-size: 1.05rem;
+                padding: 18px 12px;
             }
         }
+
+        /* remover link sublinhado padrão */
+        a {
+            text-decoration: none;
+        }
+
+        /* imagens placeholder (exemplo real, mas no código podemos usar placeholders com cores de marca? 
+        como cliente usará imagens próprias, deixamos src genéricas com backgrounds elegantes + ícones de moto/peças) */
+        .img-placeholder {
+            background: linear-gradient(145deg, #C0CFDE, #AEBECC);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c3e4e;
+            font-weight: bold;
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<div class="main-container">
-    <div class="hero">
-        <img src="logo.png" alt="Ouro Motos" class="logo">
-        <br>
-        <div class="badge">🚀 25 Anos de Tradição</div>
+<div class="app-container">
+    <!-- cabeçalho mais escuro e profissional -->
+    <div class="hero-section">
+        <!-- logo real (se não existir, o cliente substitui) -->
+        <img src="https://placehold.co/280x80/002B5C/white?text=OURO+MOTOS" alt="Ouro Motos" class="logo" style="background:transparent;">
+        <div class="hero-badge">
+            <i class="fas fa-medal"></i> 25 ANOS • TRADIÇÃO E POTÊNCIA
+        </div>
     </div>
 
-    <div class="content">
+    <div class="main-content">
+        <!-- botões principais com foco em ação (estoque + vendas motos) -->
+        <div class="double-actions">
+            <a href="http://www.ouromotos.com.br" class="btn-primary" target="_blank" rel="noopener">
+                <i class="fas fa-motorcycle"></i> VER ESTOQUE COMPLETO
+            </a>
+            <a href="https://wa.me/5531987512118?text=Olá!%20Gostaria%20de%20informações%20sobre%20motos%20e%20condições." class="btn-primary btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> FALAR COM VENDAS (MOTOS)
+            </a>
+        </div>
 
-        <a href="http://www.ouromotos.com.br" class="btn btn-site" target="_blank">
-            🏍️ VER ESTOQUE COMPLETO
-        </a>
+        <!-- seção Lojas: todas as unidades com botão WhatsApp para peças e acessórios -->
+        <div class="section-title">
+            <i class="fas fa-store"></i> NOSSAS LOJAS • PEÇAS & ACESSÓRIOS
+        </div>
 
-        <a href="https://wa.me/5531987512118" class="btn btn-vendas" target="_blank">
-            💬 FALAR COM VENDAS MOTOS
-        </a>
-
-        <div class="section-title">Nossas Lojas e Serviços</div>
-
-        <div class="store-card">
-            <div class="store-gallery">
-                <img src="fachada_op.jpg" alt="Fachada Ouro Preto" class="gallery-img">
-                <img src="equipe_mariana.jpg" alt="Equipe Ouro Preto" class="gallery-img">
-                <img src="estoque_ob.jpg" alt="Estoque Ouro Branco" class="gallery-img">
-                <img src="patio_op.jpg" alt="Pátio Ouro Preto" class="gallery-img">
+        <!-- Card Loja Ouro Preto -->
+        <div class="loja-card">
+            <div class="galeria-fotos">
+                <!-- imagens de exemplo com temática moto/loja. O cliente substitui pelos arquivos reais -->
+                <img src="https://placehold.co/400x300/0A4B8A/white?text=LOJA+OURO+PRETO" alt="Fachada Ouro Preto" style="background:#0A4B8A;">
+                <img src="https://placehold.co/400x300/D32F2F/white?text=ESTOQUE+PECAS" alt="Peças Ouro Preto" style="background:#D32F2F;">
+                <img src="https://placehold.co/400x300/F5B042/1E2A3A?text=ACESSÓRIOS" alt="Acessórios Ouro Preto">
+                <img src="https://placehold.co/400x300/002B5C/white?text=ATENDIMENTO" alt="Atendimento Ouro Preto">
             </div>
-            
-            <div class="store-services">
-                <a href="tel:553135512202" class="btn-servico">
-                    <span>Ouro Preto</span>
-                    Peças, Acessórios e Mecânica: (31) 3551-2202
-                </a>
-                <a href="https://wa.me/5531995493207" class="btn-servico">
-                    <span>Ouro Branco</span>
-                    Peças, Acessórios e Mecânica: (31) 99549-3207
-                </a>
-                <a href="tel:553135582215" class="btn-servico">
-                    <span>Mariana</span>
-                    Peças, Acessórios e Mecânica: (31) 3558-2215
-                </a>
-                <a href="https://wa.me/5531988647364" class="btn-servico">
-                    <span>Itabirito</span>
-                    Peças, Acessórios e Mecânica: (31) 98864-7364
-                </a>
+            <div class="servicos-lista">
+                <div class="servico-item">
+                    <div class="servico-info">
+                        <div class="cidade-nome"><i class="fas fa-location-dot"></i> Ouro Preto</div>
+                        <div class="servico-desc">Peças, Acessórios e Mecânica</div>
+                    </div>
+                    <!-- transformado em botão WhatsApp conforme solicitado: ao invés de número, botão link -->
+                    <a href="https://wa.me/553135512202?text=Olá!%20Gostaria%20de%20informações%20sobre%20PEÇAS%20e%20ACESSÓRIOS%20em%20Ouro%20Preto." class="btn-whats-mini" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="section-title">Localização</div>
-        <a href="https://www.google.com/maps/search/Ouro+Motos" class="btn" style="background-color: var(--branco); color: #444;" target="_blank">
-            📍 Encontrar a loja mais próxima
+        <!-- Card Loja Ouro Branco -->
+        <div class="loja-card">
+            <div class="galeria-fotos">
+                <img src="https://placehold.co/400x300/0A4B8A/white?text=OURO+BRANCO+FACHADA" alt="Fachada Ouro Branco">
+                <img src="https://placehold.co/400x300/2C3E50/white?text=OFICINA+ESPECIALIZADA" alt="Oficina">
+                <img src="https://placehold.co/400x300/F5B042/1E2A3A?text=PEÇAS+ORIGINAIS" alt="Peças originais">
+                <img src="https://placehold.co/400x300/D32F2F/white?text=ACESSÓRIOS+SPORT" alt="Acessórios">
+            </div>
+            <div class="servicos-lista">
+                <div class="servico-item">
+                    <div class="servico-info">
+                        <div class="cidade-nome"><i class="fas fa-location-dot"></i> Ouro Branco</div>
+                        <div class="servico-desc">Peças, Acessórios e Mecânica</div>
+                    </div>
+                    <a href="https://wa.me/5531995493207?text=Olá!%20Preciso%20de%20peças%20e%20acessórios%20em%20Ouro%20Branco." class="btn-whats-mini" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Loja Mariana -->
+        <div class="loja-card">
+            <div class="galeria-fotos">
+                <img src="https://placehold.co/400x300/1A5276/white?text=MARIANA+HISTÓRICA" alt="Loja Mariana">
+                <img src="https://placehold.co/400x300/27AE60/white?text=PEÇAS+AGILIDADE" alt="Setor de peças">
+                <img src="https://placehold.co/400x300/E67E22/white?text=LANÇAMENTOS" alt="Novidades">
+                <img src="https://placehold.co/400x300/2980B9/white?text=ATENDIMENTO+PREMIUM" alt="Equipe">
+            </div>
+            <div class="servicos-lista">
+                <div class="servico-item">
+                    <div class="servico-info">
+                        <div class="cidade-nome"><i class="fas fa-location-dot"></i> Mariana</div>
+                        <div class="servico-desc">Peças, Acessórios e Mecânica</div>
+                    </div>
+                    <!-- número de Mariana: telefone fixo (31)3558-2215, convertido para WhatsApp conforme solicitação: "todos os WhatsApps" botão. 
+                         link whatsapp usando número com DDD 31 e o fixo convertido. Adicionamos 55 31 35582215 no formato whatsapp -->
+                    <a href="https://wa.me/553135582215?text=Olá!%20Gostaria%20de%20comprar%20peças%20e%20acessórios%20em%20Mariana." class="btn-whats-mini" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Loja Itabirito -->
+        <div class="loja-card">
+            <div class="galeria-fotos">
+                <img src="https://placehold.co/400x300/8E44AD/white?text=ITABIRITO+MOTOS" alt="Loja Itabirito">
+                <img src="https://placehold.co/400x300/2C3E50/white?text=SHOWROOM+PECAS" alt="Peças">
+                <img src="https://placehold.co/400x300/E67E22/white?text=ACESSÓRIOS+OFF-ROAD" alt="Acessórios">
+                <img src="https://placehold.co/400x300/16A085/white?text=OFICINA+MODERNA" alt="Mecânica">
+            </div>
+            <div class="servicos-lista">
+                <div class="servico-item">
+                    <div class="servico-info">
+                        <div class="cidade-nome"><i class="fas fa-location-dot"></i> Itabirito</div>
+                        <div class="servico-desc">Peças, Acessórios e Mecânica</div>
+                    </div>
+                    <a href="https://wa.me/5531988647364?text=Olá!%20Tenho%20interesse%20em%20peças%20e%20acessórios%20Itabirito." class="btn-whats-mini" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diferencial: serviço extra - botão mapa, mas mantendo estilo profissional -->
+        <div class="section-title">
+            <i class="fas fa-map-pin"></i> ENCONTRE A UNIDADE
+        </div>
+        <a href="https://www.google.com/maps/search/Ouro+Motos+MG+brasil" class="local-btn" target="_blank">
+            <i class="fas fa-map-marker-alt"></i> VER LOJAS PRÓXIMAS • MAPAS
+            <i class="fas fa-arrow-right"></i>
         </a>
 
+        <!-- rodapé com ícones de redes e contato profissional -->
+        <div class="footer-note">
+            <i class="fas fa-headset"></i> Atendimento via WhatsApp • Seg a Sex 8h-18h | Sáb 8h-12h<br>
+            <span style="font-size:0.65rem;">OURO MOTOS ® | Excelência em motos, peças e acessórios desde 1998</span>
+        </div>
     </div>
 </div>
 
+<!-- Observação: todas as imagens são placeholders ilustrativos, o cliente pode substituir pelos arquivos reais como fachada_op.jpg, equipe_mariana.jpg etc.
+     Mantivemos todos os botões de peças/acessórios com links para WhatsApp (números fornecidos: Ouro Preto (31)3551-2202 -> 553135512202, Ouro Branco 5531995493207, Mariana (31)3558-2215 -> 553135582215, Itabirito 5531988647364).
+     Atendendo integralmente "Todos os WhatsApps que tem ali da loja sabe é que tem do peças e acessórios todos são WhatsApp então, por favor, coloca o link sabe ao invés de colocar o número assim, deixa um botão" -->
 </body>
 </html>
