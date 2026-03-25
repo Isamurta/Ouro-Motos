@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ouro Motos - Sua Máquina Te Espera!</title>
     <style>
-        /* Variáveis de Cores Premium */
+        /* Variáveis de Cores Premium e Vibrantes */
         :root {
             --azul-vibrante: #007bff;
             --azul-escuro: #004595;
             --vermelho-vibrante: #ff1f1f;
             --branco: #ffffff;
-            --cinza-fundo: #f8f9fa;
+            --cinza-claro: #f4f7f6;
+            --preto-transparente: rgba(0, 0, 0, 0.7);
         }
 
         /* Estilos Globais e Mobile-First */
@@ -19,7 +20,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--cinza-fundo);
+            background-color: var(--cinza-claro);
             color: #333;
             display: flex;
             justify-content: center;
@@ -115,7 +116,7 @@
             color: var(--branco);
         }
 
-        /* Seção Lojas com Fotos Integradas */
+        /* Seção Lojas com Fotos e Serviços Integrados */
         .section-title {
             text-align: center;
             font-size: 1.2rem;
@@ -160,6 +161,13 @@
             border-radius: 8px;
             text-decoration: none;
             display: block;
+            margin-bottom: 10px;
+        }
+
+        .btn-servico span {
+            font-weight: bold;
+            display: block;
+            font-size: 0.9rem;
         }
 
         /* Animação do Efeito de Luz */
@@ -206,10 +214,25 @@
                 <img src="estoque_ob.jpg" alt="Estoque Ouro Branco" class="gallery-img">
                 <img src="patio_op.jpg" alt="Pátio Ouro Preto" class="gallery-img">
             </div>
-            <a href="tel:553135512202" class="btn-servico">Ouro Preto: (31) 3551-2202</a>
-            <a href="https://wa.me/5531995493207" class="btn-servico">Ouro Branco: (31) 99549-3207</a>
-            <a href="tel:553135582215" class="btn-servico">Mariana: (31) 3558-2215</a>
-            <a href="https://wa.me/5531988647364" class="btn-servico">Itabirito: (31) 98864-7364</a>
+            
+            <div class="store-services">
+                <a href="tel:553135512202" class="btn-servico">
+                    <span>Ouro Preto</span>
+                    Peças, Acessórios e Mecânica: (31) 3551-2202
+                </a>
+                <a href="https://wa.me/5531995493207" class="btn-servico">
+                    <span>Ouro Branco</span>
+                    Peças, Acessórios e Mecânica: (31) 99549-3207
+                </a>
+                <a href="tel:553135582215" class="btn-servico">
+                    <span>Mariana</span>
+                    Peças, Acessórios e Mecânica: (31) 3558-2215
+                </a>
+                <a href="https://wa.me/5531988647364" class="btn-servico">
+                    <span>Itabirito</span>
+                    Peças, Acessórios e Mecânica: (31) 98864-7364
+                </a>
+            </div>
         </div>
 
         <div class="section-title">Localização</div>
