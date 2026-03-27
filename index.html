@@ -41,6 +41,7 @@
             --text-md: 1rem;
             --text-lg: 1.2rem;
             --text-xl: 1.5rem;
+            --text-2xl: 1.8rem;
             --font-medium: 500;
             --font-semibold: 600;
             --font-bold: 700;
@@ -116,7 +117,7 @@
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, var(--color-primary) 0%, #0A3B6E 50%, var(--color-secondary) 100%);
-            padding: var(--sp-2) var(--sp-2) var(--sp-2);
+            padding: var(--sp-2) var(--sp-2) var(--sp-3);
             text-align: center;
             overflow: hidden;
         }
@@ -132,6 +133,7 @@
             mix-blend-mode: overlay;
         }
         
+        /* Logo aumentada */
         .logo-container {
             position: relative;
             z-index: 2;
@@ -155,8 +157,8 @@
         }
         
         .logo {
-            max-width: 170px;
-            width: 65%;
+            max-width: 320px;
+            width: 85%;
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
             display: block;
             transition: transform 0.2s ease;
@@ -177,7 +179,7 @@
             backdrop-filter: blur(6px);
             padding: 6px 18px;
             border-radius: var(--radius-pill);
-            margin-bottom: var(--sp-1);
+            margin-bottom: 12px;
             font-size: var(--text-sm);
             font-weight: var(--font-semibold);
             color: var(--color-text-light);
@@ -189,17 +191,22 @@
             font-size: var(--text-sm);
         }
         
-        /* Headline principal */
+        /* Headline principal com destaque na palavra motos */
         .hero-headline {
             position: relative;
             z-index: 2;
-            font-size: var(--text-xl);
+            font-size: var(--text-2xl);
             font-weight: var(--font-extrabold);
-            color: var(--color-text-light);
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
             line-height: 1.2;
-            margin-bottom: var(--sp-1);
+            margin-bottom: 12px;
             letter-spacing: -0.5px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-headline .highlight {
+            color: var(--color-accent);
+            position: relative;
+            display: inline-block;
         }
         
         /* Subtítulo */
@@ -208,10 +215,10 @@
             z-index: 2;
             font-size: var(--text-sm);
             font-weight: var(--font-medium);
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.95);
             background: rgba(0,0,0,0.3);
             backdrop-filter: blur(4px);
-            padding: 4px 14px;
+            padding: 5px 16px;
             border-radius: var(--radius-pill);
             display: inline-block;
         }
@@ -860,11 +867,15 @@
                 width: 80%;
             }
             .hero-headline {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
             .hero-badge {
                 font-size: var(--text-xs);
                 padding: 4px 14px;
+            }
+            .logo {
+                max-width: 280px;
+                width: 90%;
             }
         }
     </style>
@@ -886,7 +897,7 @@
         <img src="destaque_moto.jpg" alt="Moto Destaque Ouro Motos" class="hero-bg-moto" onerror="this.src='https://placehold.co/800x600/0A2F5A/white?text=MOTO+DESTAQUE'">
         
         <div class="logo-container">
-            <img src="logo.png" alt="Ouro Motos" class="logo" onerror="this.src='https://placehold.co/400x120/FFFFFF/0A2F5A?text=OURO+MOTOS'">
+            <img src="logo.png" alt="Ouro Motos" class="logo" onerror="this.src='https://placehold.co/500x150/FFFFFF/0A2F5A?text=OURO+MOTOS'">
         </div>
         
         <!-- Badge com 25 anos de confiança -->
@@ -894,8 +905,10 @@
             <i class="fas fa-trophy"></i> 25 ANOS DE CONFIANÇA
         </div>
         
-        <!-- Headline principal -->
-        <h1 class="hero-headline">O maior estoque<br>de motos da região.</h1>
+        <!-- Headline principal com destaque na palavra "motos" -->
+        <h1 class="hero-headline">
+            O maior estoque de <span class="highlight">motos</span><br>da região.
+        </h1>
         
         <!-- Subtítulo -->
         <div class="hero-sub">
