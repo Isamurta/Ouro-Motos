@@ -221,11 +221,6 @@
             color: var(--color-accent);
         }
         
-        /* Hero sub removido/oculto */
-        .hero-sub {
-            display: none;
-        }
-        
         /* ========== MAIN CONTENT ========== */
         .main-content {
             padding: var(--sp-2) var(--sp-2) var(--sp-3);
@@ -480,7 +475,7 @@
             transform: scale(0.96);
         }
         
-        /* Galeria */
+        /* ========== CARROSSEL HORIZONTAL ========== */
         .galeria {
             margin-bottom: var(--sp-3);
         }
@@ -497,35 +492,90 @@
             gap: var(--sp-1);
         }
         
-        .grid-fotos {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--sp-2);
+        /* Container do carrossel - scroll horizontal com snap */
+        .carrossel-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            /* Esconde a barra de rolagem */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE e Edge */
         }
         
-        .foto-card {
+        .carrossel-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        
+        /* Flex container dos cards */
+        .carrossel-fotos {
+            display: flex;
+            gap: 16px;
+            padding: 4px 20px 8px 20px;
+        }
+        
+        /* Cada card do carrossel */
+        .carrossel-item {
+            flex-shrink: 0;
+            width: 85%;
+            scroll-snap-align: start;
             border-radius: var(--radius-card);
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: var(--shadow-sm);
-            aspect-ratio: 1 / 0.9;
-        }
-        
-        .foto-card:hover {
-            transform: translateY(-4px);
             box-shadow: var(--shadow-md);
+            background: var(--color-bg-card);
+            aspect-ratio: 1 / 0.85;
         }
         
-        .foto-card img {
+        /* Efeito de "próximo item visível" para indicar swipe */
+        .carrossel-item:not(:last-child) {
+            margin-right: 0;
+        }
+        
+        .carrossel-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .carrossel-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
             transition: transform 0.3s ease;
         }
         
-        .foto-card:hover img {
-            transform: scale(1.05);
+        .carrossel-item:hover img {
+            transform: scale(1.03);
+        }
+        
+        /* Indicador de swipe (opcional) - pequeno ícone para indicar que pode arrastar */
+        .swipe-indicator {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 0.7rem;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            opacity: 0.7;
+        }
+        
+        .swipe-indicator i {
+            font-size: 0.8rem;
+            animation: swipeHint 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes swipeHint {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(5px);
+            }
         }
         
         /* Diferenciais */
@@ -819,6 +869,12 @@
             background: var(--color-secondary);
             color: var(--color-text-light);
         }
+        
+        @media (max-width: 480px) {
+            .carrossel-item {
+                width: 82%;
+            }
+        }
     </style>
 </head>
 
@@ -841,18 +897,16 @@
             <img src="logo.png" alt="Ouro Motos" class="logo" onerror="this.src='https://placehold.co/500x150/FFFFFF/0A2F5A?text=OURO+MOTOS'">
         </div>
         
-        <!-- Bloco condensado - tudo em uma linha ou duas finas -->
+        <!-- Bloco condensado -->
         <div class="hero-info-compact">
             <div class="hero-badge-compact">
-                <i class="fas fa-gem"></i> 25 ANOS  
+                <i class="fas fa-gem"></i> 25 ANOS
             </div>
             <span class="hero-divider">•</span>
             <div class="hero-trophy-compact">
                 <i class="fas fa-trophy"></i> MAIOR ESTOQUE DA REGIÃO
             </div>
         </div>
-        
-        <!-- Hero sub removido para economizar espaço -->
     </div>
 
     <div class="main-content">
@@ -861,7 +915,6 @@
             <a href="http://www.ouromotos.com.br" class="btn btn-primary" target="_blank">
                 <i class="fas fa-motorcycle"></i> VER ESTOQUE COMPLETO
             </a>
-            <!-- Botão WhatsApp simplificado - uma linha -->
             <a href="https://wa.me/5531987512118?text=Olá,%20gostaria%20de%20saber%20mais%20informações%20sobre%20a%20venda%20de%20veículos." class="btn btn-whatsapp-simple" target="_blank">
                 <i class="fab fa-whatsapp"></i>
                 <span>Falar com Vendedor</span>
@@ -905,22 +958,27 @@
             </div>
         </div>
 
-        <!-- Galeria -->
+        <!-- GALERIA EM CARROSSEL HORIZONTAL -->
         <div class="galeria">
             <div class="galeria-title"><i class="fas fa-images"></i> GALERIA • NOSSA ESTRUTURA</div>
-            <div class="grid-fotos">
-                <div class="foto-card" onclick="abrirModal(this)">
-                    <img src="fachada_op.jpg" alt="Fachada Ouro Preto" onerror="this.src='https://placehold.co/400x300/0A2F5A/white?text=FACHADA+OP'">
+            <div class="carrossel-container">
+                <div class="carrossel-fotos">
+                    <div class="carrossel-item" onclick="abrirModal(this)">
+                        <img src="fachada_op.jpg" alt="Fachada Ouro Preto" onerror="this.src='https://placehold.co/600x500/0A2F5A/white?text=FACHADA+OP'">
+                    </div>
+                    <div class="carrossel-item" onclick="abrirModal(this)">
+                        <img src="equipe_mariana.jpg" alt="Equipe Mariana" onerror="this.src='https://placehold.co/600x500/D32F2F/white?text=EQUIPE+MARIANA'">
+                    </div>
+                    <div class="carrossel-item" onclick="abrirModal(this)">
+                        <img src="estoque_ob.jpg" alt="Estoque Ouro Branco" onerror="this.src='https://placehold.co/600x500/F5A623/white?text=ESTOQUE+OB'">
+                    </div>
+                    <div class="carrossel-item" onclick="abrirModal(this)">
+                        <img src="patio_op.jpg" alt="Pátio Ouro Preto" onerror="this.src='https://placehold.co/600x500/0077FF/white?text=PATIO+OP'">
+                    </div>
                 </div>
-                <div class="foto-card" onclick="abrirModal(this)">
-                    <img src="equipe_mariana.jpg" alt="Equipe Mariana" onerror="this.src='https://placehold.co/400x300/D32F2F/white?text=EQUIPE+MARIANA'">
-                </div>
-                <div class="foto-card" onclick="abrirModal(this)">
-                    <img src="estoque_ob.jpg" alt="Estoque Ouro Branco" onerror="this.src='https://placehold.co/400x300/F5A623/white?text=ESTOQUE+OB'">
-                </div>
-                <div class="foto-card" onclick="abrirModal(this)">
-                    <img src="patio_op.jpg" alt="Pátio Ouro Preto" onerror="this.src='https://placehold.co/400x300/0077FF/white?text=PATIO+OP'">
-                </div>
+            </div>
+            <div class="swipe-indicator">
+                <i class="fas fa-arrow-left"></i> Arraste para ver mais <i class="fas fa-arrow-right"></i>
             </div>
         </div>
 
