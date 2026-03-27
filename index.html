@@ -117,7 +117,7 @@
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, var(--color-primary) 0%, #0A3B6E 50%, var(--color-secondary) 100%);
-            padding: var(--sp-2) var(--sp-2) var(--sp-3);
+            padding: var(--sp-2) var(--sp-2) var(--sp-2);
             text-align: center;
             overflow: hidden;
         }
@@ -137,7 +137,7 @@
         .logo-container {
             position: relative;
             z-index: 2;
-            margin-bottom: var(--sp-1);
+            margin-bottom: 8px;
             display: flex;
             justify-content: center;
         }
@@ -157,8 +157,8 @@
         }
         
         .logo {
-            max-width: 320px;
-            width: 85%;
+            max-width: 340px;
+            width: 88%;
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
             display: block;
             transition: transform 0.2s ease;
@@ -168,57 +168,60 @@
             transform: scale(1.01);
         }
         
-        /* Badge com 25 anos de confiança */
+        /* Badge com 25 anos de confiança - aumentado */
         .hero-badge {
             position: relative;
             z-index: 2;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(0,0,0,0.45);
-            backdrop-filter: blur(6px);
-            padding: 6px 18px;
+            gap: 10px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            padding: 8px 22px;
             border-radius: var(--radius-pill);
             margin-bottom: 12px;
-            font-size: var(--text-sm);
-            font-weight: var(--font-semibold);
+            font-size: var(--text-md);
+            font-weight: var(--font-bold);
             color: var(--color-text-light);
             border: 1px solid var(--color-accent);
         }
         
         .hero-badge i {
             color: var(--color-accent);
-            font-size: var(--text-sm);
+            font-size: var(--text-md);
         }
         
-        /* Headline principal com destaque na palavra motos */
+        /* Headline principal - SEM BACKGROUND, apenas text-shadow */
         .hero-headline {
             position: relative;
             z-index: 2;
+            font-family: var(--font-base);
             font-size: var(--text-2xl);
             font-weight: var(--font-extrabold);
             line-height: 1.2;
             margin-bottom: 12px;
             letter-spacing: -0.5px;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            background: transparent;
+            color: var(--color-text-light);
         }
         
         .hero-headline .highlight {
             color: var(--color-accent);
-            position: relative;
-            display: inline-block;
+            background: transparent;
         }
         
         /* Subtítulo */
         .hero-sub {
             position: relative;
             z-index: 2;
+            font-family: var(--font-base);
             font-size: var(--text-sm);
             font-weight: var(--font-medium);
             color: rgba(255,255,255,0.95);
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.35);
             backdrop-filter: blur(4px);
-            padding: 5px 16px;
+            padding: 5px 18px;
             border-radius: var(--radius-pill);
             display: inline-block;
         }
@@ -867,14 +870,14 @@
                 width: 80%;
             }
             .hero-headline {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
             .hero-badge {
-                font-size: var(--text-xs);
-                padding: 4px 14px;
+                font-size: var(--text-sm);
+                padding: 6px 18px;
             }
             .logo {
-                max-width: 280px;
+                max-width: 300px;
                 width: 90%;
             }
         }
@@ -900,12 +903,12 @@
             <img src="logo.png" alt="Ouro Motos" class="logo" onerror="this.src='https://placehold.co/500x150/FFFFFF/0A2F5A?text=OURO+MOTOS'">
         </div>
         
-        <!-- Badge com 25 anos de confiança -->
+        <!-- Badge com 25 anos de confiança - aumentado -->
         <div class="hero-badge">
             <i class="fas fa-trophy"></i> 25 ANOS DE CONFIANÇA
         </div>
         
-        <!-- Headline principal com destaque na palavra "motos" -->
+        <!-- Headline principal - SEM BACKGROUND, apenas text-shadow -->
         <h1 class="hero-headline">
             O maior estoque de <span class="highlight">motos</span><br>da região.
         </h1>
