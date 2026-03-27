@@ -108,7 +108,7 @@
             100% { transform: scale(1.08); }
         }
 
-        /* Container da logo com efeito de sombra branca suave */
+        /* Container da logo com efeito constante */
         .logo-container {
             position: relative;
             z-index: 3;
@@ -125,11 +125,11 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 105%;
-            height: 105%;
-            background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.3) 40%, transparent 80%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, transparent 80%);
             border-radius: 50%;
-            filter: blur(20px);
+            filter: blur(15px);
             z-index: -1;
         }
 
@@ -139,18 +139,18 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 60%, transparent 90%);
+            width: 95%;
+            height: 95%;
+            background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, rgba(255,255,255,0.1) 50%, transparent 80%);
             border-radius: 50%;
             z-index: -1;
-            filter: blur(12px);
+            filter: blur(8px);
         }
 
         .logo {
             max-width: 280px;
             width: 85%;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2)) brightness(1.05);
+            filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5)) brightness(1.08) contrast(1.08);
             display: block;
             transition: transform 0.3s ease;
             position: relative;
@@ -159,215 +159,6 @@
 
         .logo:hover {
             transform: scale(1.02);
-        }
-
-        /* Botão Promoções - Envelope/Fita */
-        .promo-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
-            background: linear-gradient(135deg, #E3221F, #C2181B);
-            color: white;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            animation: floatPromo 2s ease-in-out infinite;
-            border: 2px solid var(--ouro-brilho);
-        }
-
-        .promo-btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 10px 25px rgba(227,34,31,0.4);
-        }
-
-        @keyframes floatPromo {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-        }
-
-        .promo-btn i {
-            font-size: 1.6rem;
-            margin-bottom: 2px;
-        }
-
-        .promo-btn span {
-            font-size: 0.6rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-        }
-
-        .promo-btn::after {
-            content: '';
-            position: absolute;
-            top: -8px;
-            right: -5px;
-            width: 20px;
-            height: 20px;
-            background: var(--ouro-brilho);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: bold;
-            color: var(--vermelho-energia);
-            border: 2px solid white;
-            animation: pulseDot 1.5s infinite;
-        }
-
-        @keyframes pulseDot {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.8; }
-        }
-
-        /* Modal de Promoções */
-        .modal-promo {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .modal-promo-content {
-            background: linear-gradient(135deg, #FFFFFF, #FFF9F0);
-            max-width: 450px;
-            width: 90%;
-            border-radius: 48px;
-            padding: 0;
-            animation: modalSlideIn 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            cursor: default;
-            overflow: hidden;
-            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-40px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .promo-header {
-            background: linear-gradient(135deg, var(--azul-profundo), var(--vermelho-energia));
-            padding: 24px 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .promo-header h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .promo-header p {
-            font-size: 0.8rem;
-            opacity: 0.9;
-            margin-top: 6px;
-        }
-
-        .promo-list {
-            padding: 24px 22px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .promo-card {
-            background: white;
-            border-radius: 28px;
-            padding: 18px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--vermelho-energia);
-            transition: all 0.2s;
-        }
-
-        .promo-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-        }
-
-        .promo-badge {
-            display: inline-block;
-            background: var(--vermelho-energia);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 4px 12px;
-            border-radius: 30px;
-            margin-bottom: 12px;
-        }
-
-        .promo-card h3 {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--azul-profundo);
-            margin-bottom: 8px;
-        }
-
-        .promo-card p {
-            font-size: 0.85rem;
-            color: #4A5B6E;
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-
-        .promo-detail {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--azul-eletrico);
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid #EEE;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.3rem;
-            color: var(--azul-profundo);
-            transition: all 0.2s;
-        }
-
-        .close-modal:hover {
-            transform: scale(1.1);
-            background: var(--vermelho-energia);
-            color: white;
         }
 
         .hero-badge {
@@ -596,7 +387,7 @@
             opacity: 0.8;
         }
 
-        /* Seção de Peças e Acessórios - Apenas 3 lojas (Ouro Branco removido) */
+        /* Seção de Peças e Acessórios */
         .pecas-section {
             background: var(--branco-puro);
             border-radius: 36px;
@@ -642,6 +433,7 @@
         .whats-item-central:nth-child(1) { animation-delay: 0.05s; }
         .whats-item-central:nth-child(2) { animation-delay: 0.1s; }
         .whats-item-central:nth-child(3) { animation-delay: 0.15s; }
+        .whats-item-central:nth-child(4) { animation-delay: 0.2s; }
 
         @keyframes slideIn {
             from {
@@ -798,7 +590,7 @@
             transform: scale(1.08);
         }
 
-        /* Modal de imagem */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -869,15 +661,6 @@
             color: #5C6F87;
         }
 
-        .credits {
-            text-align: center;
-            font-size: 0.6rem;
-            color: #8A99AA;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
         @media (min-width: 550px) {
             .app-container { max-width: 520px; }
             .logo { max-width: 300px; width: 90%; }
@@ -889,13 +672,6 @@
 <div class="app-container">
     <div class="hero-section">
         <img src="destaque_moto.jpg" alt="Moto Destaque Ouro Motos" class="hero-bg-moto" onerror="this.src='https://placehold.co/800x600/0A2F5A/white?text=MOTO+DESTAQUE'">
-        
-        <!-- Botão Promoções - Envelope/Fita -->
-        <div class="promo-btn" onclick="abrirPromocoes()">
-            <i class="fas fa-gift"></i>
-            <span>PROMO</span>
-        </div>
-        
         <div class="logo-container">
             <img src="logo.png" alt="Ouro Motos" class="logo" onerror="this.src='https://placehold.co/500x150/FFFFFF/0A2F5A?text=OURO+MOTOS'">
         </div>
@@ -938,7 +714,7 @@
             <div class="asterisco">*Sujeito a análise de crédito</div>
         </div>
 
-        <!-- PEÇAS E ACESSÓRIOS - Apenas Ouro Preto, Mariana e Itabirito (Ouro Branco removido) -->
+        <!-- PEÇAS E ACESSÓRIOS -->
         <div class="pecas-section">
             <div class="titulo-central">
                 <i class="fas fa-tools" style="color: var(--vermelho-energia);"></i>
@@ -947,15 +723,19 @@
             <div class="grid-whats-central">
                 <div class="whats-item-central">
                     <div class="cidade-nome"><i class="fas fa-location-dot" style="color: var(--ouro-brilho);"></i> Ouro Preto</div>
-                    <a href="https://wa.me/553135512202?text=Oi,%20tudo%20bem?%20Tenho%20interesse%20nos%20produtos%20da%20loja%20e%20queria%20mais%20informações." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://wa.me/553135512202?text=Olá,%20gostaria%20de%20falar%20com%20o%20setor%20de%20peças%20e%20acessórios." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+                <div class="whats-item-central">
+                    <div class="cidade-nome"><i class="fas fa-location-dot" style="color: var(--ouro-brilho);"></i> Ouro Branco</div>
+                    <a href="https://wa.me/5531995493207?text=Olá,%20gostaria%20de%20falar%20com%20o%20setor%20de%20peças%20e%20acessórios." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
                 <div class="whats-item-central">
                     <div class="cidade-nome"><i class="fas fa-location-dot" style="color: var(--ouro-brilho);"></i> Mariana</div>
-                    <a href="https://wa.me/553135582215?text=Oi,%20tudo%20bem?%20Tenho%20interesse%20nos%20produtos%20da%20loja%20e%20queria%20mais%20informações." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://wa.me/553135582215?text=Olá,%20gostaria%20de%20falar%20com%20o%20setor%20de%20peças%20e%20acessórios." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
                 <div class="whats-item-central">
                     <div class="cidade-nome"><i class="fas fa-location-dot" style="color: var(--ouro-brilho);"></i> Itabirito</div>
-                    <a href="https://wa.me/5531988647364?text=Oi,%20tudo%20bem?%20Tenho%20interesse%20nos%20produtos%20da%20loja%20e%20queria%20mais%20informações." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://wa.me/5531988647364?text=Olá,%20gostaria%20de%20falar%20com%20o%20setor%20de%20peças%20e%20acessórios." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
             </div>
         </div>
@@ -971,4 +751,73 @@
                     <img src="equipe_mariana.jpg" alt="Equipe Mariana" onerror="this.src='https://placehold.co/400x300/D32F2F/white?text=EQUIPE+MARIANA'">
                 </div>
                 <div class="foto-card" onclick="abrirModal(this)">
-                    <img src="estoque_ob.jpg" alt="Estoque Ouro Branco" onerror="this.src='https://placehold.co/400x300/F5A623/white?text
+                    <img src="estoque_ob.jpg" alt="Estoque Ouro Branco" onerror="this.src='https://placehold.co/400x300/F5A623/white?text=ESTOQUE+OB'">
+                </div>
+                <div class="foto-card" onclick="abrirModal(this)">
+                    <img src="patio_op.jpg" alt="Pátio Ouro Preto" onerror="this.src='https://placehold.co/400x300/0077FF/white?text=PATIO+OP'">
+                </div>
+            </div>
+        </div>
+
+        <!-- ALUGUEL - ALUGAR VEÍCULO -->
+        <div class="aluguel-card">
+            <div class="aluguel-text">
+                <i class="fas fa-key"></i>
+                <strong>ALUGAR VEÍCULO</strong>
+                <span>Motos e Carros • Diárias especiais • Consulte condições</span>
+            </div>
+            <a href="https://wa.me/5531992247414?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20aluguel%20de%20motos%20e%20carros." class="btn-aluguel" target="_blank">
+                <i class="fab fa-whatsapp"></i> ALUGUE JÁ
+            </a>
+        </div>
+
+        <!-- DIFERENCIAIS -->
+        <div class="diferenciais">
+            <h3><i class="fas fa-crown"></i> POR QUE ESCOLHER A OURO MOTOS?</h3>
+            <div class="badge-diferencial"><i class="fas fa-boxes"></i> ✅ Maior estoque de motos da região</div>
+            <div class="badge-diferencial"><i class="fas fa-handshake"></i> ✅ 25+ anos de tradição e credibilidade</div>
+            <div class="badge-diferencial"><i class="fas fa-exchange-alt"></i> ✅ Pegamos seu veículo usado na troca (moto ou carro)</div>
+            <div class="badge-diferencial"><i class="fas fa-motorcycle"></i> ✅ Venda de motos, carros e quadriciclos</div>
+            <div class="badge-diferencial"><i class="fas fa-calendar-alt"></i> ✅ Aluguel de motos e carros</div>
+        </div>
+
+        <!-- Horário de atendimento -->
+        <div class="horario">
+            <i class="far fa-clock"></i> ATENDIMENTO: SEG a SEX 8h–18h | SÁB 8h–12h
+        </div>
+
+        <!-- Localização -->
+        <a href="https://www.google.com/maps/search/Ouro+Motos+MG" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #1F2E3E; color: white; padding: 14px; border-radius: 60px; text-decoration: none; font-weight: 700; margin: 16px 0 8px;" target="_blank">
+            <i class="fas fa-map-marker-alt"></i> ENCONTRAR LOJA MAIS PRÓXIMA
+        </a>
+
+        <div class="footer">
+            <i class="fas fa-motorcycle"></i> Ouro Motos — Potência, confiança e o melhor negócio para você
+        </div>
+    </div>
+</div>
+
+<!-- Modal para ampliar imagem -->
+<div id="imageModal" class="modal" onclick="fecharModal()">
+    <img id="modalImg" src="" alt="Ampliada">
+</div>
+
+<script>
+    function abrirModal(element) {
+        const img = element.querySelector('img');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+    }
+
+    function fecharModal() {
+        document.getElementById('imageModal').style.display = 'none';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if(e.key === 'Escape') fecharModal();
+    });
+</script>
+</body>
+</html>
