@@ -12,7 +12,6 @@
     <style>
         /* ========== DESIGN SYSTEM ========== */
         :root {
-            /* Cores */
             --color-primary: #0A2F5A;
             --color-primary-dark: #05203D;
             --color-secondary: #E3221F;
@@ -24,22 +23,18 @@
             --color-text-secondary: #5C6F87;
             --color-text-light: #FFFFFF;
             
-            /* Espaçamento */
             --sp-1: 8px;
             --sp-2: 16px;
             --sp-3: 24px;
             --sp-4: 32px;
             
-            /* Border Radius */
             --radius-card: 16px;
             --radius-pill: 50px;
             
-            /* Sombras */
             --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
             --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.12);
             
-            /* Tipografia */
             --font-base: 'Inter', sans-serif;
             --text-xs: 0.7rem;
             --text-sm: 0.85rem;
@@ -117,7 +112,7 @@
             font-size: var(--text-md);
         }
         
-        /* ========== HERO SECTION - REDUZIDO E OTIMIZADO ========== */
+        /* ========== HERO SECTION ========== */
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, var(--color-primary) 0%, #0A3B6E 50%, var(--color-secondary) 100%);
@@ -137,7 +132,6 @@
             mix-blend-mode: overlay;
         }
         
-        /* Logo menor */
         .logo-container {
             position: relative;
             z-index: 2;
@@ -152,8 +146,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%;
-            height: 90%;
+            width: 95%;
+            height: 95%;
             background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%);
             border-radius: 50%;
             filter: blur(10px);
@@ -161,8 +155,8 @@
         }
         
         .logo {
-            max-width: 160px;
-            width: 60%;
+            max-width: 170px;
+            width: 65%;
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
             display: block;
             transition: transform 0.2s ease;
@@ -172,19 +166,19 @@
             transform: scale(1.01);
         }
         
-        /* Nova estrutura compacta */
+        /* Badge com 25 anos de confiança */
         .hero-badge {
             position: relative;
             z-index: 2;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             background: rgba(0,0,0,0.45);
             backdrop-filter: blur(6px);
-            padding: 4px 14px;
+            padding: 6px 18px;
             border-radius: var(--radius-pill);
             margin-bottom: var(--sp-1);
-            font-size: var(--text-xs);
+            font-size: var(--text-sm);
             font-weight: var(--font-semibold);
             color: var(--color-text-light);
             border: 1px solid var(--color-accent);
@@ -192,9 +186,10 @@
         
         .hero-badge i {
             color: var(--color-accent);
-            font-size: var(--text-xs);
+            font-size: var(--text-sm);
         }
         
+        /* Headline principal */
         .hero-headline {
             position: relative;
             z-index: 2;
@@ -203,10 +198,11 @@
             color: var(--color-text-light);
             text-shadow: 0 2px 8px rgba(0,0,0,0.3);
             line-height: 1.2;
-            margin-bottom: 6px;
+            margin-bottom: var(--sp-1);
             letter-spacing: -0.5px;
         }
         
+        /* Subtítulo */
         .hero-sub {
             position: relative;
             z-index: 2;
@@ -866,6 +862,10 @@
             .hero-headline {
                 font-size: 1.3rem;
             }
+            .hero-badge {
+                font-size: var(--text-xs);
+                padding: 4px 14px;
+            }
         }
     </style>
 </head>
@@ -889,13 +889,15 @@
             <img src="logo.png" alt="Ouro Motos" class="logo" onerror="this.src='https://placehold.co/400x120/FFFFFF/0A2F5A?text=OURO+MOTOS'">
         </div>
         
-        <!-- Nova estrutura compacta e persuasiva -->
+        <!-- Badge com 25 anos de confiança -->
         <div class="hero-badge">
-            <i class="fas fa-trophy"></i> 25 Anos de Confiança
+            <i class="fas fa-trophy"></i> 25 ANOS DE CONFIANÇA
         </div>
         
+        <!-- Headline principal -->
         <h1 class="hero-headline">O maior estoque<br>de motos da região.</h1>
         
+        <!-- Subtítulo -->
         <div class="hero-sub">
             Motos, carros e quadriciclos
         </div>
