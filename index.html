@@ -8,142 +8,125 @@
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
+        /* ========== DESIGN SYSTEM ========== */
+        :root {
+            /* Cores - Paleta dominante com hierarquia clara */
+            --color-primary: #0A2F5A;      /* Azul profundo - dominante */
+            --color-primary-dark: #05203D;
+            --color-secondary: #E3221F;    /* Vermelho - acento */
+            --color-accent: #F5A623;       /* Dourado - detalhes */
+            --color-success: #25D366;      /* WhatsApp */
+            --color-bg-light: #F8FAFE;
+            --color-bg-card: #FFFFFF;
+            --color-text-primary: #1A2C3E;
+            --color-text-secondary: #5C6F87;
+            --color-text-light: #FFFFFF;
+            
+            /* Espaçamento - sistema base 8px */
+            --sp-1: 8px;
+            --sp-2: 16px;
+            --sp-3: 24px;
+            --sp-4: 32px;
+            --sp-5: 40px;
+            
+            /* Border Radius - apenas 2 valores */
+            --radius-card: 16px;
+            --radius-pill: 50px;
+            
+            /* Sombras */
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.12);
+            
+            /* Tipografia */
+            --font-base: 'Inter', sans-serif;
+            --text-xs: 0.7rem;
+            --text-sm: 0.85rem;
+            --text-md: 1rem;
+            --text-lg: 1.2rem;
+            --text-xl: 1.4rem;
+            --font-normal: 400;
+            --font-medium: 500;
+            --font-semibold: 600;
+            --font-bold: 700;
+            --font-extrabold: 800;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        :root {
-            --azul-profundo: #0A2F5A;
-            --azul-eletrico: #0077FF;
-            --vermelho-energia: #E3221F;
-            --ouro-brilho: #F5A623;
-            --cinza-premium: #F8FAFE;
-            --branco-puro: #FFFFFF;
-            --verde-destaque: #25D366;
-            --shadow-3d: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
-            --shadow-flutuante: 0 12px 25px -10px rgba(0, 0, 0, 0.12);
-        }
-
+        
         body {
-            font-family: 'Outfit', sans-serif;
-            background: linear-gradient(145deg, #EFF3FC 0%, #E3E9F2 100%);
+            font-family: var(--font-base);
+            background: linear-gradient(145deg, #EFF3FC 0%, #E9EEF5 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 16px 12px;
+            padding: var(--sp-2);
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
         }
-
-        body::before {
-            content: '';
-            position: fixed;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 20% 40%, rgba(0,119,255,0.02) 0%, transparent 50%);
-            animation: backgroundMove 20s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes backgroundMove {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-3%, -3%); }
-        }
-
+        
         .app-container {
             max-width: 500px;
             width: 100%;
-            background: var(--branco-puro);
-            border-radius: 44px 44px 40px 40px;
+            background: var(--color-bg-card);
+            border-radius: var(--radius-card);
             overflow: hidden;
-            box-shadow: var(--shadow-3d);
-            position: relative;
-            z-index: 2;
-            animation: containerEntrance 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: var(--shadow-lg);
+            animation: containerEntrance 0.5s ease-out;
         }
-
+        
         @keyframes containerEntrance {
             from {
                 opacity: 0;
-                transform: translateY(30px) scale(0.98);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translateY(0);
             }
         }
-
-        /* Faixa de Promoção no Topo - Degradê suave e cantos arredondados */
+        
+        /* ========== FAIXA DE PROMOÇÃO ========== */
         .promo-ribbon {
-            background: linear-gradient(95deg, #D32F2F, #E53935, #D32F2F);
-            background-size: 200% 100%;
-            padding: 14px 20px;
+            background: var(--color-secondary);
+            padding: var(--sp-2);
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 5;
-            border-bottom: 2px solid var(--ouro-brilho);
-            animation: gradientShift 3s ease-in-out infinite;
+            transition: filter 0.2s ease;
         }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
+        
         .promo-ribbon:hover {
-            transform: translateY(-1px);
             filter: brightness(1.05);
         }
-
+        
         .promo-ribbon-content {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            color: white;
-            font-weight: 800;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            gap: var(--sp-1);
+            color: var(--color-text-light);
+            font-weight: var(--font-bold);
+            font-size: var(--text-sm);
         }
-
+        
         .promo-ribbon-content i {
-            font-size: 1.1rem;
-            animation: shakeLight 1.5s ease-in-out infinite;
+            font-size: var(--text-md);
         }
-
-        @keyframes shakeLight {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(3deg); }
-            75% { transform: rotate(-3deg); }
-        }
-
-        .promo-ribbon-content span {
-            text-transform: uppercase;
-            font-weight: 800;
-        }
-
-        /* Hero com motion - Reduzido para melhor aproveitamento */
+        
+        /* ========== HERO SECTION ========== */
         .hero-section {
             position: relative;
-            background: linear-gradient(135deg, var(--azul-profundo) 0%, #0A3B6E 50%, var(--vermelho-energia) 100%);
-            padding: 18px 20px 28px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #0A3B6E 50%, var(--color-secondary) 100%);
+            padding: var(--sp-3) var(--sp-2) var(--sp-3);
             text-align: center;
             overflow: hidden;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
-
+        
         .hero-bg-moto {
             position: absolute;
             top: 0;
@@ -151,27 +134,18 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.28;
+            opacity: 0.25;
             mix-blend-mode: overlay;
-            animation: zoomSlow 12s ease-in-out infinite alternate;
         }
-
-        @keyframes zoomSlow {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.06); }
-        }
-
-        /* Container da logo - Maior e com sombra suave */
+        
         .logo-container {
             position: relative;
-            z-index: 3;
-            margin-bottom: 12px;
+            z-index: 2;
+            margin-bottom: var(--sp-2);
             display: flex;
             justify-content: center;
-            align-items: center;
-            width: 100%;
         }
-
+        
         .logo-container::before {
             content: '';
             position: absolute;
@@ -180,573 +154,469 @@
             transform: translate(-50%, -50%);
             width: 95%;
             height: 95%;
-            background: radial-gradient(circle, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.2) 60%, transparent 90%);
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
             border-radius: 50%;
-            filter: blur(14px);
+            filter: blur(12px);
             z-index: -1;
         }
-
+        
         .logo {
-            max-width: 300px;
-            width: 88%;
-            filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25)) brightness(1.04);
+            max-width: 280px;
+            width: 80%;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
             display: block;
-            transition: transform 0.3s ease;
-            position: relative;
-            margin: 0 auto;
+            transition: transform 0.2s ease;
         }
-
+        
         .logo:hover {
             transform: scale(1.01);
         }
-
+        
         .hero-badge {
-            background: rgba(0,0,0,0.55);
-            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 22px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            color: white;
-            border: 1px solid var(--ouro-brilho);
+            gap: var(--sp-1);
+            padding: var(--sp-1) var(--sp-3);
+            border-radius: var(--radius-pill);
+            font-weight: var(--font-semibold);
+            font-size: var(--text-sm);
+            color: var(--color-text-light);
+            border: 1px solid var(--color-accent);
             position: relative;
-            z-index: 3;
-            margin-top: 4px;
+            z-index: 2;
+            margin-bottom: var(--sp-1);
         }
-
+        
         .hero-text-impact {
             position: relative;
-            z-index: 3;
-            margin-top: 10px;
-            background: rgba(0,0,0,0.45);
+            z-index: 2;
+            background: rgba(0,0,0,0.4);
             backdrop-filter: blur(6px);
-            border-radius: 35px;
-            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            padding: var(--sp-1) var(--sp-2);
             display: inline-block;
-            width: auto;
+            margin-bottom: var(--sp-1);
         }
-
+        
         .hero-text-impact p {
-            color: white;
-            font-weight: 700;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
+            color: var(--color-text-light);
+            font-weight: var(--font-semibold);
+            font-size: var(--text-sm);
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
+            gap: var(--sp-1);
         }
-
+        
         .hero-text-impact i {
-            color: var(--ouro-brilho);
-            font-size: 0.8rem;
+            color: var(--color-accent);
         }
-
+        
         .hero-sub {
             position: relative;
-            z-index: 3;
-            margin-top: 8px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: rgba(255,255,255,0.95);
+            z-index: 2;
+            font-size: var(--text-xs);
+            font-weight: var(--font-medium);
+            color: rgba(255,255,255,0.9);
             background: rgba(0,0,0,0.3);
             backdrop-filter: blur(4px);
-            padding: 4px 14px;
-            border-radius: 25px;
+            padding: 4px var(--sp-2);
+            border-radius: var(--radius-pill);
             display: inline-block;
         }
-
-        /* Modal de Promoções */
-        .modal-promo {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.88);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .modal-promo-content {
-            background: linear-gradient(135deg, #FFFFFF, #FFFBF5);
-            max-width: 430px;
-            width: 90%;
-            border-radius: 44px;
-            padding: 0;
-            animation: modalSlideIn 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            cursor: default;
-            overflow: hidden;
-            box-shadow: 0 30px 50px rgba(0,0,0,0.35);
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-30px) scale(0.96);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .promo-header {
-            background: linear-gradient(135deg, var(--azul-profundo), var(--vermelho-energia));
-            padding: 22px 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .promo-header h2 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .promo-header p {
-            font-size: 0.7rem;
-            opacity: 0.9;
-            margin-top: 5px;
-        }
-
-        .promo-list {
-            padding: 22px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .promo-card {
-            background: white;
-            border-radius: 24px;
-            padding: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            border-left: 4px solid var(--vermelho-energia);
-            transition: all 0.2s;
-        }
-
-        .promo-card:hover {
-            transform: translateX(4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .promo-badge {
-            display: inline-block;
-            background: var(--vermelho-energia);
-            color: white;
-            font-size: 0.6rem;
-            font-weight: 800;
-            padding: 3px 10px;
-            border-radius: 25px;
-            margin-bottom: 8px;
-        }
-
-        .promo-card h3 {
-            font-size: 1rem;
-            font-weight: 800;
-            color: var(--azul-profundo);
-            margin-bottom: 6px;
-        }
-
-        .promo-card p {
-            font-size: 0.75rem;
-            color: #5a6b7e;
-            line-height: 1.4;
-            margin-bottom: 8px;
-        }
-
-        .promo-detail {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--azul-eletrico);
-            margin-top: 6px;
-            padding-top: 6px;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .close-modal-promo {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.2rem;
-            color: var(--azul-profundo);
-            transition: all 0.2s;
-        }
-
-        .close-modal-promo:hover {
-            transform: scale(1.08);
-            background: var(--vermelho-energia);
-            color: white;
-        }
-
-        /* Conteúdo principal */
+        
+        /* ========== MAIN CONTENT ========== */
         .main-content {
-            padding: 24px 18px 28px;
-            background: var(--cinza-premium);
+            padding: var(--sp-3) var(--sp-2) var(--sp-3);
+            background: var(--color-bg-light);
         }
-
-        /* Botões principais - Centralizados e maiores */
+        
+        /* Botões */
         .double-actions {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 22px;
+            gap: var(--sp-2);
+            margin-bottom: var(--sp-3);
         }
-
-        .btn-motion {
+        
+        .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            background: linear-gradient(95deg, var(--azul-profundo), var(--azul-eletrico));
-            color: white;
+            gap: var(--sp-2);
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 15px 20px;
-            border-radius: 60px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 18px -6px rgba(0,51,102,0.3);
-            position: relative;
-            overflow: hidden;
+            font-weight: var(--font-bold);
+            font-size: var(--text-md);
+            padding: var(--sp-2) var(--sp-3);
+            border-radius: var(--radius-pill);
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
         }
-
-        .btn-motion i {
-            font-size: 1.2rem;
-        }
-
-        .btn-motion::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .btn-motion:hover::after {
-            opacity: 1;
-            animation: shine 0.6s;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) rotate(0deg); }
-            100% { transform: translateX(100%) rotate(0deg); }
-        }
-
-        .btn-motion:active {
+        
+        .btn:active {
             transform: scale(0.98);
         }
-
-        .btn-whats-vendas {
-            background: linear-gradient(95deg, #1A7A3A, #2DCC70);
-            box-shadow: 0 8px 18px -6px rgba(37,184,92,0.35);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            padding: 13px 20px;
+        
+        .btn-primary {
+            background: linear-gradient(95deg, var(--color-primary), var(--color-primary-dark));
+            color: var(--color-text-light);
+            box-shadow: var(--shadow-sm);
         }
-
-        .btn-whats-vendas i {
-            font-size: 1.6rem;
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
-
+        
+        .btn-whatsapp {
+            background: linear-gradient(95deg, #1A7A3A, var(--color-success));
+            color: var(--color-text-light);
+        }
+        
+        .btn-whatsapp i {
+            font-size: 1.4rem;
+        }
+        
         .vendas-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 2px;
         }
-
+        
         .vendas-main {
-            font-size: 1.1rem;
-            font-weight: 800;
-            letter-spacing: 0.3px;
+            font-size: var(--text-md);
+            font-weight: var(--font-extrabold);
         }
-
+        
         .vendas-sub {
-            font-size: 0.75rem;
-            font-weight: 600;
-            opacity: 0.92;
+            font-size: var(--text-xs);
+            font-weight: var(--font-medium);
+            opacity: 0.9;
         }
-
-        /* Facilidades Premium */
-        .facilidades-premium {
-            background: linear-gradient(125deg, #0A2F5A, #134B7A);
-            border-radius: 28px;
-            padding: 18px 16px;
-            margin: 6px 0 22px 0;
-            color: white;
-            box-shadow: var(--shadow-flutuante);
-            transition: all 0.3s;
+        
+        /* Cards de facilidades */
+        .card {
+            background: linear-gradient(125deg, var(--color-primary), #134B7A);
+            border-radius: var(--radius-card);
+            padding: var(--sp-2) var(--sp-2);
+            margin-bottom: var(--sp-3);
+            color: var(--color-text-light);
         }
-
-        .facilidades-premium h3 {
-            font-size: 1rem;
+        
+        .card-title {
+            font-size: var(--text-md);
+            font-weight: var(--font-extrabold);
             text-align: center;
-            margin-bottom: 14px;
-            font-weight: 800;
+            margin-bottom: var(--sp-2);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: var(--sp-1);
         }
-
-        .facilidades-premium h3 i {
-            color: var(--ouro-brilho);
-            font-size: 1.1rem;
+        
+        .card-title i {
+            color: var(--color-accent);
         }
-
-        .grid-facilidades {
+        
+        .badge-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: var(--sp-1);
             justify-content: center;
         }
-
-        .badge-facil {
+        
+        .badge {
             background: rgba(255,255,255,0.12);
-            backdrop-filter: blur(8px);
-            padding: 6px 14px;
-            border-radius: 40px;
-            font-size: 0.7rem;
-            font-weight: 600;
+            padding: var(--sp-1) var(--sp-2);
+            border-radius: var(--radius-pill);
+            font-size: var(--text-xs);
+            font-weight: var(--font-medium);
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            transition: all 0.2s;
-            border: 1px solid rgba(255,255,255,0.2);
+            gap: var(--sp-1);
+            transition: all 0.2s ease;
         }
-
-        .badge-facil i {
-            font-size: 0.7rem;
-            color: var(--ouro-brilho);
-        }
-
-        .badge-facil:hover {
-            transform: translateY(-2px);
+        
+        .badge:hover {
             background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
         }
-
-        .asterisco {
+        
+        .badge i {
+            font-size: var(--text-xs);
+            color: var(--color-accent);
+        }
+        
+        .asterisk {
             text-align: center;
-            font-size: 0.55rem;
-            margin-top: 10px;
+            font-size: var(--text-xs);
+            margin-top: var(--sp-1);
             opacity: 0.75;
         }
-
-        /* Seção de Peças e Acessórios */
-        .pecas-section {
-            background: var(--branco-puro);
-            border-radius: 28px;
-            padding: 16px 16px;
-            margin: 18px 0 18px;
-            box-shadow: var(--shadow-flutuante);
+        
+        /* Seção Peças */
+        .section-card {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-card);
+            padding: var(--sp-2);
+            margin-bottom: var(--sp-3);
+            box-shadow: var(--shadow-sm);
         }
-
-        .titulo-central {
+        
+        .section-title {
             text-align: center;
-            font-weight: 800;
-            font-size: 1.2rem;
-            background: linear-gradient(135deg, var(--azul-profundo), var(--vermelho-energia));
+            font-weight: var(--font-extrabold);
+            font-size: var(--text-md);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 14px;
+            margin-bottom: var(--sp-2);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: var(--sp-1);
         }
-
-        .grid-whats-central {
+        
+        .whats-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: var(--sp-1);
         }
-
-        .whats-item-central {
-            background: linear-gradient(105deg, #F8FAFF, #FFFFFF);
-            border-radius: 60px;
-            padding: 10px 18px;
+        
+        .whats-item {
+            background: linear-gradient(105deg, #F8FAFF, var(--color-bg-card));
+            border-radius: var(--radius-pill);
+            padding: var(--sp-1) var(--sp-2);
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            border: 1px solid rgba(0,119,255,0.12);
-            transition: all 0.25s;
+            border: 1px solid rgba(0,119,255,0.1);
+            transition: all 0.2s ease;
         }
-
-        .whats-item-central:hover {
-            transform: translateX(5px);
-            border-color: var(--ouro-brilho);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        
+        .whats-item:hover {
+            transform: translateX(4px);
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-sm);
         }
-
-        .cidade-nome {
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--azul-profundo);
+        
+        .city-name {
+            font-weight: var(--font-bold);
+            font-size: var(--text-sm);
+            color: var(--color-primary);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: var(--sp-1);
         }
-
-        .btn-whats-solo {
-            background: #25D366;
-            padding: 6px 18px;
-            border-radius: 50px;
-            color: white;
-            font-weight: 700;
-            font-size: 0.7rem;
+        
+        .btn-whats-small {
+            background: var(--color-success);
+            padding: 6px var(--sp-2);
+            border-radius: var(--radius-pill);
+            color: var(--color-text-light);
+            font-weight: var(--font-bold);
+            font-size: var(--text-xs);
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: var(--sp-1);
             text-decoration: none;
-            transition: all 0.2s;
-            box-shadow: 0 3px 8px rgba(37,211,102,0.25);
+            transition: all 0.2s ease;
         }
-
-        .btn-whats-solo:active {
-            transform: scale(0.95);
+        
+        .btn-whats-small:active {
+            transform: scale(0.96);
         }
-
-        /* Aluguel Card */
+        
+        /* Aluguel */
         .aluguel-card {
             background: linear-gradient(95deg, #2C3E50, #1A2C3E);
-            border-radius: 26px;
-            padding: 14px;
-            margin: 14px 0;
+            border-radius: var(--radius-card);
+            padding: var(--sp-2);
+            margin-bottom: var(--sp-3);
             text-align: center;
-            box-shadow: var(--shadow-flutuante);
-            transition: all 0.25s;
+            transition: transform 0.2s ease;
         }
-
+        
         .aluguel-card:hover {
             transform: translateY(-2px);
         }
-
+        
         .aluguel-text {
-            color: white;
-            margin-bottom: 10px;
+            color: var(--color-text-light);
+            margin-bottom: var(--sp-2);
         }
-
+        
         .aluguel-text i {
-            font-size: 1.4rem;
-            color: var(--ouro-brilho);
-            margin-bottom: 4px;
+            font-size: 1.8rem;
+            color: var(--color-accent);
+            margin-bottom: var(--sp-1);
             display: inline-block;
         }
-
+        
         .aluguel-text strong {
-            font-size: 0.95rem;
+            font-size: var(--text-md);
             display: block;
-            margin: 4px 0;
+            margin: var(--sp-1) 0;
         }
-
+        
         .aluguel-text span {
-            font-size: 0.65rem;
+            font-size: var(--text-xs);
             opacity: 0.85;
         }
-
+        
         .btn-aluguel {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: #25D366;
-            padding: 9px 24px;
-            border-radius: 50px;
-            color: white;
-            font-weight: 700;
-            font-size: 0.85rem;
+            gap: var(--sp-1);
+            background: var(--color-success);
+            padding: var(--sp-1) var(--sp-3);
+            border-radius: var(--radius-pill);
+            color: var(--color-text-light);
+            font-weight: var(--font-bold);
+            font-size: var(--text-sm);
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
-
-        .btn-aluguel i {
-            font-size: 0.95rem;
-        }
-
+        
         .btn-aluguel:active {
             transform: scale(0.96);
         }
-
+        
         /* Galeria */
-        .galeria-interativa {
-            margin: 20px 0 14px;
+        .galeria {
+            margin-bottom: var(--sp-3);
         }
-
-        .galeria-titulo {
-            font-weight: 700;
-            font-size: 1rem;
+        
+        .galeria-title {
+            font-weight: var(--font-bold);
+            font-size: var(--text-md);
             text-align: center;
-            margin-bottom: 12px;
-            color: var(--azul-profundo);
+            margin-bottom: var(--sp-2);
+            color: var(--color-primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: var(--sp-1);
         }
-
+        
         .grid-fotos {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: var(--sp-2);
         }
-
+        
         .foto-card {
-            border-radius: 22px;
+            border-radius: var(--radius-card);
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: var(--shadow-sm);
             aspect-ratio: 1 / 0.9;
         }
-
+        
+        .foto-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
         .foto-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            transition: transform 0.3s ease;
         }
-
-        .foto-card:hover {
-            transform: translateY(-4px) scale(1.01);
-            box-shadow: 0 12px 22px rgba(0,0,0,0.15);
-        }
-
+        
         .foto-card:hover img {
             transform: scale(1.05);
         }
-
-        /* Modal imagem */
+        
+        /* Diferenciais */
+        .diferenciais {
+            background: linear-gradient(125deg, var(--color-primary), #0A3F6E);
+            border-radius: var(--radius-card);
+            padding: var(--sp-2);
+            margin-bottom: var(--sp-2);
+            color: var(--color-text-light);
+        }
+        
+        .diferenciais h3 {
+            font-size: var(--text-md);
+            text-align: center;
+            margin-bottom: var(--sp-2);
+            font-weight: var(--font-extrabold);
+        }
+        
+        .badge-diferencial {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-1);
+            background: rgba(255,255,255,0.1);
+            padding: var(--sp-1) var(--sp-2);
+            border-radius: var(--radius-pill);
+            margin-bottom: var(--sp-1);
+            font-size: var(--text-xs);
+            font-weight: var(--font-medium);
+            transition: all 0.2s ease;
+        }
+        
+        .badge-diferencial:hover {
+            background: rgba(255,255,255,0.18);
+            transform: translateX(4px);
+        }
+        
+        /* Horário e localização */
+        .horario {
+            text-align: center;
+            background: #F0F4FA;
+            padding: var(--sp-2);
+            border-radius: var(--radius-pill);
+            font-weight: var(--font-semibold);
+            font-size: var(--text-sm);
+            margin: var(--sp-2) 0;
+        }
+        
+        .btn-local {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--sp-2);
+            background: #1F2E3E;
+            color: var(--color-text-light);
+            padding: var(--sp-2);
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            font-weight: var(--font-bold);
+            font-size: var(--text-sm);
+            margin: var(--sp-2) 0 var(--sp-1);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-local:active {
+            transform: scale(0.98);
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: var(--text-xs);
+            padding: var(--sp-2);
+            color: var(--color-text-secondary);
+        }
+        
+        .credits {
+            text-align: center;
+            font-size: 0.6rem;
+            color: #9aabbc;
+            margin-top: var(--sp-1);
+            padding-top: var(--sp-1);
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -754,83 +624,162 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.92);
+            background: rgba(0,0,0,0.9);
             z-index: 1000;
             justify-content: center;
             align-items: center;
             cursor: pointer;
         }
-
+        
         .modal img {
             max-width: 90%;
             max-height: 90%;
-            border-radius: 20px;
-            animation: zoomIn 0.25s;
+            border-radius: var(--radius-card);
+            animation: zoomIn 0.2s ease;
         }
-
+        
         @keyframes zoomIn {
-            from { transform: scale(0.9); opacity: 0; }
+            from { transform: scale(0.95); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
-
-        /* Diferenciais */
-        .diferenciais {
-            background: linear-gradient(125deg, var(--azul-profundo), #0A3F6E);
-            border-radius: 26px;
-            padding: 16px;
-            margin: 18px 0 14px;
-            color: white;
-            box-shadow: var(--shadow-flutuante);
+        
+        .modal-promo {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
         }
-
-        .diferenciais h3 {
-            font-size: 1rem;
+        
+        .modal-promo-content {
+            background: linear-gradient(135deg, var(--color-bg-card), #FFFBF5);
+            max-width: 430px;
+            width: 90%;
+            border-radius: var(--radius-card);
+            animation: modalSlideIn 0.3s ease;
+            cursor: default;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .promo-header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            padding: var(--sp-2);
             text-align: center;
-            margin-bottom: 12px;
-            font-weight: 800;
+            color: var(--color-text-light);
         }
-
-        .badge-diferencial {
+        
+        .promo-header h2 {
+            font-size: var(--text-lg);
+            font-weight: var(--font-extrabold);
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(255,255,255,0.1);
-            padding: 8px 12px;
-            border-radius: 50px;
-            margin-bottom: 8px;
-            backdrop-filter: blur(4px);
-            font-size: 0.75rem;
+            justify-content: center;
+            gap: var(--sp-1);
         }
-
-        .horario {
-            text-align: center;
-            background: #F0F4FA;
-            padding: 10px;
-            border-radius: 35px;
-            font-weight: 600;
-            font-size: 0.75rem;
-            margin: 10px 0;
+        
+        .promo-header p {
+            font-size: var(--text-xs);
+            opacity: 0.9;
+            margin-top: 4px;
         }
-
-        .footer {
-            text-align: center;
-            font-size: 0.6rem;
-            padding: 12px;
-            color: #6c7e92;
+        
+        .promo-list {
+            padding: var(--sp-2);
+            display: flex;
+            flex-direction: column;
+            gap: var(--sp-2);
         }
-
-        .credits {
-            text-align: center;
-            font-size: 0.5rem;
-            color: #9aabbc;
-            margin-top: 5px;
-            padding-top: 5px;
-            border-top: 1px solid rgba(0,0,0,0.05);
+        
+        .promo-card {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-card);
+            padding: var(--sp-2);
+            box-shadow: var(--shadow-sm);
+            border-left: 3px solid var(--color-secondary);
+            transition: transform 0.2s ease;
         }
-
-        @media (min-width: 550px) {
-            .app-container { max-width: 500px; }
-            .logo { max-width: 310px; width: 90%; }
+        
+        .promo-card:hover {
+            transform: translateX(4px);
+        }
+        
+        .promo-badge {
+            display: inline-block;
+            background: var(--color-secondary);
+            color: var(--color-text-light);
+            font-size: var(--text-xs);
+            font-weight: var(--font-bold);
+            padding: 2px var(--sp-1);
+            border-radius: var(--radius-pill);
+            margin-bottom: var(--sp-1);
+        }
+        
+        .promo-card h3 {
+            font-size: var(--text-sm);
+            font-weight: var(--font-bold);
+            color: var(--color-primary);
+            margin-bottom: 4px;
+        }
+        
+        .promo-card p {
+            font-size: var(--text-xs);
+            color: var(--color-text-secondary);
+            line-height: 1.4;
+            margin-bottom: var(--sp-1);
+        }
+        
+        .promo-detail {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-1);
+            font-size: var(--text-xs);
+            font-weight: var(--font-semibold);
+            color: var(--color-primary);
+            margin-top: var(--sp-1);
+            padding-top: var(--sp-1);
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: var(--sp-2);
+            right: var(--sp-2);
+            background: var(--color-bg-card);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: var(--text-md);
+            color: var(--color-primary);
+            transition: all 0.2s ease;
+        }
+        
+        .close-modal:hover {
+            transform: scale(1.08);
+            background: var(--color-secondary);
+            color: var(--color-text-light);
         }
     </style>
 </head>
@@ -838,7 +787,7 @@
 <body>
 
 <div class="app-container">
-    <!-- FAIXA DE PROMOÇÃO - Degradê suave e cantos arredondados -->
+    <!-- Faixa de Promoção -->
     <div class="promo-ribbon" onclick="abrirPromocoes()">
         <div class="promo-ribbon-content">
             <i class="fas fa-fire"></i>
@@ -865,12 +814,12 @@
     </div>
 
     <div class="main-content">
-        <!-- Botões principais - Centralizados e maiores -->
+        <!-- Botões principais -->
         <div class="double-actions">
-            <a href="http://www.ouromotos.com.br" class="btn-motion" target="_blank">
+            <a href="http://www.ouromotos.com.br" class="btn btn-primary" target="_blank">
                 <i class="fas fa-motorcycle"></i> VER ESTOQUE COMPLETO
             </a>
-            <a href="https://wa.me/5531987512118?text=Olá,%20gostaria%20de%20saber%20mais%20informações%20sobre%20a%20venda%20de%20veículos." class="btn-motion btn-whats-vendas" target="_blank">
+            <a href="https://wa.me/5531987512118?text=Olá,%20gostaria%20de%20saber%20mais%20informações%20sobre%20a%20venda%20de%20veículos." class="btn btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i>
                 <div class="vendas-content">
                     <div class="vendas-main">EQUIPE DE VENDAS</div>
@@ -879,44 +828,46 @@
             </a>
         </div>
 
-        <!-- FACILIDADES QUE IMPULSIONAM -->
-        <div class="facilidades-premium">
-            <h3><i class="fas fa-rocket"></i> FACILIDADES QUE IMPULSIONAM</h3>
-            <div class="grid-facilidades">
-                <div class="badge-facil"><i class="fas fa-credit-card"></i> Cartão até 24x</div>
-                <div class="badge-facil"><i class="fas fa-building"></i> Financiamento até 48x</div>
-                <div class="badge-facil"><i class="fas fa-hand-holding-usd"></i> Sem entrada*</div>
-                <div class="badge-facil"><i class="fas fa-handshake"></i> Consórcio</div>
-                <div class="badge-facil"><i class="fas fa-exchange-alt"></i> Pegamos seu veículo na troca</div>
+        <!-- Facilidades -->
+        <div class="card">
+            <div class="card-title">
+                <i class="fas fa-rocket"></i> FACILIDADES QUE IMPULSIONAM
             </div>
-            <div class="asterisco">*Sujeito a análise de crédito</div>
+            <div class="badge-grid">
+                <div class="badge"><i class="fas fa-credit-card"></i> Cartão até 24x</div>
+                <div class="badge"><i class="fas fa-building"></i> Financiamento até 48x</div>
+                <div class="badge"><i class="fas fa-hand-holding-usd"></i> Sem entrada*</div>
+                <div class="badge"><i class="fas fa-handshake"></i> Consórcio</div>
+                <div class="badge"><i class="fas fa-exchange-alt"></i> Pegamos seu veículo na troca</div>
+            </div>
+            <div class="asterisk">*Sujeito a análise de crédito</div>
         </div>
 
-        <!-- PEÇAS E ACESSÓRIOS -->
-        <div class="pecas-section">
-            <div class="titulo-central">
-                <i class="fas fa-tools" style="color: var(--vermelho-energia);"></i>
+        <!-- Peças e Acessórios -->
+        <div class="section-card">
+            <div class="section-title">
+                <i class="fas fa-tools" style="color: var(--color-secondary);"></i>
                 PEÇAS & ACESSÓRIOS
             </div>
-            <div class="grid-whats-central">
-                <div class="whats-item-central">
-                    <div class="cidade-nome"><i class="fas fa-location-dot" style="color: var(--ouro-brilho);"></i> Ouro Preto</div>
-                    <a href="https://wa.me/553135512202?text=Oi,%20tudo%20bem?%20Tenho%20interesse%20nos%20produtos%20da%20loja%20e%20queria%20mais%20informações." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <div class="whats-list">
+                <div class="whats-item">
+                    <div class="city-name"><i class="fas fa-location-dot" style="color: var(--color-accent);"></i> Ouro Preto</div>
+                    <a href="https://wa.me/553135512202?text=Oi,%20tudo%20bem?%20Tenho%20interesse%20nos%20produtos%20da%20loja%20e%20queria%20mais%20informações." class="btn-whats-small" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
-                <div class="whats-item-central">
-                    <div class="cidade-nome"><i class="fas fa-location-dot" style="color: var(--ouro-brilho);"></i> Mariana</div>
-                    <a href="https://wa.me/553135582215?text=Oi,%20tudo%20bem?%20Tenho%20interesse%20nos%20produtos%20da%20loja%20e%20queria%20mais%20informações." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <div class="whats-item">
+                    <div class="city-name"><i class="fas fa-location-dot" style="color: var(--color-accent);"></i> Mariana</div>
+                    <a href="https://wa.me/553135582215?text=Oi,%20tudo%20bem?%20Tenho%20interesse%20nos%20produtos%20da%20loja%20e%20queria%20mais%20informações." class="btn-whats-small" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
-                <div class="whats-item-central">
-                    <div class="cidade-nome"><i class="fas fa-location-dot" style="color: var(--ouro-brilho);"></i> Itabirito</div>
-                    <a href="https://wa.me/5531988647364?text=Oi,%20tudo%20bem?%20Tenho%20interesse%20nos%20produtos%20da%20loja%20e%20queria%20mais%20informações." class="btn-whats-solo" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <div class="whats-item">
+                    <div class="city-name"><i class="fas fa-location-dot" style="color: var(--color-accent);"></i> Itabirito</div>
+                    <a href="https://wa.me/5531988647364?text=Oi,%20tudo%20bem?%20Tenho%20interesse%20nos%20produtos%20da%20loja%20e%20queria%20mais%20informações." class="btn-whats-small" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
             </div>
         </div>
 
-        <!-- GALERIA -->
-        <div class="galeria-interativa">
-            <div class="galeria-titulo"><i class="fas fa-images"></i> GALERIA • NOSSA ESTRUTURA</div>
+        <!-- Galeria -->
+        <div class="galeria">
+            <div class="galeria-title"><i class="fas fa-images"></i> GALERIA • NOSSA ESTRUTURA</div>
             <div class="grid-fotos">
                 <div class="foto-card" onclick="abrirModal(this)">
                     <img src="fachada_op.jpg" alt="Fachada Ouro Preto" onerror="this.src='https://placehold.co/400x300/0A2F5A/white?text=FACHADA+OP'">
@@ -933,7 +884,7 @@
             </div>
         </div>
 
-        <!-- ALUGUEL -->
+        <!-- Aluguel -->
         <div class="aluguel-card">
             <div class="aluguel-text">
                 <i class="fas fa-key"></i>
@@ -945,7 +896,7 @@
             </a>
         </div>
 
-        <!-- DIFERENCIAIS -->
+        <!-- Diferenciais -->
         <div class="diferenciais">
             <h3><i class="fas fa-crown"></i> POR QUE ESCOLHER A OURO MOTOS?</h3>
             <div class="badge-diferencial"><i class="fas fa-boxes"></i> ✅ Maior estoque de motos da região</div>
@@ -961,7 +912,7 @@
         </div>
 
         <!-- Localização -->
-        <a href="https://www.google.com/maps/search/Ouro+Motos+MG" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #1F2E3E; color: white; padding: 11px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.8rem; margin: 12px 0 6px;" target="_blank">
+        <a href="https://www.google.com/maps/search/Ouro+Motos+MG" class="btn-local" target="_blank">
             <i class="fas fa-map-marker-alt"></i> ENCONTRAR LOJA MAIS PRÓXIMA
         </a>
 
@@ -977,7 +928,7 @@
 <!-- Modal de Promoções -->
 <div id="promoModal" class="modal-promo" onclick="fecharPromocoes(event)">
     <div class="modal-promo-content" onclick="event.stopPropagation()">
-        <div class="close-modal-promo" onclick="fecharPromocoes()">✕</div>
+        <div class="close-modal" onclick="fecharPromocoes()">✕</div>
         <div class="promo-header">
             <h2><i class="fas fa-gift"></i> PROMOÇÕES ATUAIS</h2>
             <p>Aproveite as ofertas imperdíveis!</p>
@@ -1016,7 +967,7 @@
     }
 
     function fecharPromocoes(event) {
-        if (!event || event.target === document.getElementById('promoModal') || event.target.classList.contains('close-modal-promo')) {
+        if (!event || event.target === document.getElementById('promoModal') || event.target.classList.contains('close-modal')) {
             document.getElementById('promoModal').style.display = 'none';
         }
     }
