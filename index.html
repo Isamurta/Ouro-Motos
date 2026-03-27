@@ -24,8 +24,8 @@
             --cinza-premium: #F8FAFE;
             --branco-puro: #FFFFFF;
             --verde-destaque: #25D366;
-            --shadow-3d: 0 25px 40px -12px rgba(0, 0, 0, 0.25);
-            --shadow-flutuante: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
+            --shadow-3d: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+            --shadow-flutuante: 0 12px 25px -10px rgba(0, 0, 0, 0.12);
         }
 
         body {
@@ -34,7 +34,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 12px;
+            padding: 16px 12px;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
@@ -45,32 +45,32 @@
             position: fixed;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at 20% 40%, rgba(0,119,255,0.03) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 40%, rgba(0,119,255,0.02) 0%, transparent 50%);
             animation: backgroundMove 20s ease-in-out infinite;
             pointer-events: none;
         }
 
         @keyframes backgroundMove {
             0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-5%, -5%); }
+            50% { transform: translate(-3%, -3%); }
         }
 
         .app-container {
             max-width: 500px;
             width: 100%;
             background: var(--branco-puro);
-            border-radius: 52px 52px 48px 48px;
+            border-radius: 44px 44px 40px 40px;
             overflow: hidden;
             box-shadow: var(--shadow-3d);
             position: relative;
             z-index: 2;
-            animation: containerEntrance 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            animation: containerEntrance 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
         @keyframes containerEntrance {
             from {
                 opacity: 0;
-                transform: translateY(40px) scale(0.96);
+                transform: translateY(30px) scale(0.98);
             }
             to {
                 opacity: 1;
@@ -78,33 +78,28 @@
             }
         }
 
-        /* Faixa de Promoção no Topo */
+        /* Faixa de Promoção no Topo - Degradê suave e cantos arredondados */
         .promo-ribbon {
-            background: linear-gradient(95deg, #E3221F, #C2181B);
-            padding: 12px 16px;
+            background: linear-gradient(95deg, #D32F2F, #E53935, #D32F2F);
+            background-size: 200% 100%;
+            padding: 14px 20px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-bottom: 2px solid var(--ouro-brilho);
-            animation: ribbonPulse 1.5s ease-in-out infinite;
             position: relative;
             z-index: 5;
+            border-bottom: 2px solid var(--ouro-brilho);
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .promo-ribbon:hover {
-            background: linear-gradient(95deg, #C2181B, #E3221F);
-            transform: scale(1.01);
-        }
-
-        @keyframes ribbonPulse {
-            0%, 100% {
-                background: linear-gradient(95deg, #E3221F, #C2181B);
-                box-shadow: 0 0 0 0 rgba(227,34,31,0.4);
-            }
-            50% {
-                background: linear-gradient(95deg, #FF3330, #D32F2F);
-                box-shadow: 0 0 0 6px rgba(227,34,31,0.2);
-            }
+            transform: translateY(-1px);
+            filter: brightness(1.05);
         }
 
         .promo-ribbon-content {
@@ -116,31 +111,33 @@
             font-weight: 800;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .promo-ribbon-content i {
-            font-size: 1.2rem;
-            animation: shake 1s ease-in-out infinite;
+            font-size: 1.1rem;
+            animation: shakeLight 1.5s ease-in-out infinite;
         }
 
-        @keyframes shake {
+        @keyframes shakeLight {
             0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(5deg); }
-            75% { transform: rotate(-5deg); }
+            25% { transform: rotate(3deg); }
+            75% { transform: rotate(-3deg); }
         }
 
         .promo-ribbon-content span {
             text-transform: uppercase;
+            font-weight: 800;
         }
 
-        /* Hero com motion e foto destaque_moto.jpg */
+        /* Hero com motion - Reduzido para melhor aproveitamento */
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, var(--azul-profundo) 0%, #0A3B6E 50%, var(--vermelho-energia) 100%);
-            padding: 20px 20px 36px;
+            padding: 18px 20px 28px;
             text-align: center;
             overflow: hidden;
-            min-height: 340px;
+            min-height: 300px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -154,17 +151,17 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.3;
+            opacity: 0.28;
             mix-blend-mode: overlay;
             animation: zoomSlow 12s ease-in-out infinite alternate;
         }
 
         @keyframes zoomSlow {
             0% { transform: scale(1); }
-            100% { transform: scale(1.08); }
+            100% { transform: scale(1.06); }
         }
 
-        /* Container da logo com efeito de sombra branca suave */
+        /* Container da logo - Maior e com sombra suave */
         .logo-container {
             position: relative;
             z-index: 3;
@@ -181,18 +178,18 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%;
-            height: 90%;
-            background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 50%, transparent 80%);
+            width: 95%;
+            height: 95%;
+            background: radial-gradient(circle, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.2) 60%, transparent 90%);
             border-radius: 50%;
-            filter: blur(12px);
+            filter: blur(14px);
             z-index: -1;
         }
 
         .logo {
-            max-width: 260px;
-            width: 80%;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2)) brightness(1.05);
+            max-width: 300px;
+            width: 88%;
+            filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25)) brightness(1.04);
             display: block;
             transition: transform 0.3s ease;
             position: relative;
@@ -200,70 +197,65 @@
         }
 
         .logo:hover {
-            transform: scale(1.02);
+            transform: scale(1.01);
         }
 
         .hero-badge {
             background: rgba(0,0,0,0.55);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 8px 24px;
-            border-radius: 60px;
-            font-weight: 800;
-            font-size: 0.85rem;
+            gap: 8px;
+            padding: 6px 22px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
             color: white;
             border: 1px solid var(--ouro-brilho);
             position: relative;
             z-index: 3;
-            margin-top: 6px;
-            animation: pulseBadge 2s infinite;
-        }
-
-        @keyframes pulseBadge {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(245,166,35,0.4); }
-            50% { box-shadow: 0 0 0 8px rgba(245,166,35,0); }
+            margin-top: 4px;
         }
 
         .hero-text-impact {
             position: relative;
             z-index: 3;
-            margin-top: 12px;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-            border-radius: 40px;
-            padding: 10px 16px;
+            margin-top: 10px;
+            background: rgba(0,0,0,0.45);
+            backdrop-filter: blur(6px);
+            border-radius: 35px;
+            padding: 8px 16px;
             display: inline-block;
             width: auto;
         }
 
         .hero-text-impact p {
             color: white;
-            font-weight: 800;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .hero-text-impact i {
             color: var(--ouro-brilho);
+            font-size: 0.8rem;
         }
 
         .hero-sub {
             position: relative;
             z-index: 3;
-            margin-top: 10px;
-            font-size: 0.75rem;
+            margin-top: 8px;
+            font-size: 0.7rem;
             font-weight: 600;
             color: rgba(255,255,255,0.95);
-            background: rgba(0,0,0,0.35);
+            background: rgba(0,0,0,0.3);
             backdrop-filter: blur(4px);
             padding: 4px 14px;
-            border-radius: 30px;
+            border-radius: 25px;
             display: inline-block;
         }
 
@@ -275,7 +267,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.88);
             backdrop-filter: blur(8px);
             z-index: 2000;
             justify-content: center;
@@ -284,21 +276,21 @@
         }
 
         .modal-promo-content {
-            background: linear-gradient(135deg, #FFFFFF, #FFF9F0);
-            max-width: 450px;
+            background: linear-gradient(135deg, #FFFFFF, #FFFBF5);
+            max-width: 430px;
             width: 90%;
-            border-radius: 48px;
+            border-radius: 44px;
             padding: 0;
             animation: modalSlideIn 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             cursor: default;
             overflow: hidden;
-            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.35);
         }
 
         @keyframes modalSlideIn {
             from {
                 opacity: 0;
-                transform: translateY(-40px) scale(0.95);
+                transform: translateY(-30px) scale(0.96);
             }
             to {
                 opacity: 1;
@@ -308,119 +300,119 @@
 
         .promo-header {
             background: linear-gradient(135deg, var(--azul-profundo), var(--vermelho-energia));
-            padding: 24px 20px;
+            padding: 22px 20px;
             text-align: center;
             color: white;
         }
 
         .promo-header h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 800;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .promo-header p {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             opacity: 0.9;
-            margin-top: 6px;
+            margin-top: 5px;
         }
 
         .promo-list {
-            padding: 24px 22px;
+            padding: 22px 20px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
         }
 
         .promo-card {
             background: white;
-            border-radius: 28px;
+            border-radius: 24px;
             padding: 16px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--vermelho-energia);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--vermelho-energia);
             transition: all 0.2s;
         }
 
         .promo-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+            transform: translateX(4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .promo-badge {
             display: inline-block;
             background: var(--vermelho-energia);
             color: white;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 800;
-            padding: 4px 12px;
-            border-radius: 30px;
-            margin-bottom: 10px;
-        }
-
-        .promo-card h3 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--azul-profundo);
+            padding: 3px 10px;
+            border-radius: 25px;
             margin-bottom: 8px;
         }
 
+        .promo-card h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--azul-profundo);
+            margin-bottom: 6px;
+        }
+
         .promo-card p {
-            font-size: 0.8rem;
-            color: #4A5B6E;
+            font-size: 0.75rem;
+            color: #5a6b7e;
             line-height: 1.4;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .promo-detail {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.75rem;
+            gap: 6px;
+            font-size: 0.7rem;
             font-weight: 600;
             color: var(--azul-eletrico);
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid #EEE;
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px solid #f0f0f0;
         }
 
         .close-modal-promo {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 16px;
+            right: 16px;
             background: white;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--azul-profundo);
             transition: all 0.2s;
         }
 
         .close-modal-promo:hover {
-            transform: scale(1.1);
+            transform: scale(1.08);
             background: var(--vermelho-energia);
             color: white;
         }
 
         /* Conteúdo principal */
         .main-content {
-            padding: 24px 20px 32px;
+            padding: 24px 18px 28px;
             background: var(--cinza-premium);
         }
 
-        /* Botões principais */
+        /* Botões principais - Centralizados e maiores */
         .double-actions {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
         }
 
         .btn-motion {
@@ -431,14 +423,18 @@
             background: linear-gradient(95deg, var(--azul-profundo), var(--azul-eletrico));
             color: white;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 0.95rem;
-            padding: 16px 16px;
-            border-radius: 80px;
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            box-shadow: 0 12px 25px -8px rgba(0,51,102,0.5);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 15px 20px;
+            border-radius: 60px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 18px -6px rgba(0,51,102,0.3);
             position: relative;
             overflow: hidden;
+        }
+
+        .btn-motion i {
+            font-size: 1.2rem;
         }
 
         .btn-motion::after {
@@ -448,14 +444,14 @@
             left: -60%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
             opacity: 0;
-            transition: opacity 0.5s;
+            transition: opacity 0.4s;
         }
 
         .btn-motion:hover::after {
             opacity: 1;
-            animation: shine 0.8s;
+            animation: shine 0.6s;
         }
 
         @keyframes shine {
@@ -464,17 +460,17 @@
         }
 
         .btn-motion:active {
-            transform: scale(0.96);
+            transform: scale(0.98);
         }
 
         .btn-whats-vendas {
             background: linear-gradient(95deg, #1A7A3A, #2DCC70);
-            box-shadow: 0 12px 25px -8px rgba(37,184,92,0.5);
+            box-shadow: 0 8px 18px -6px rgba(37,184,92,0.35);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 14px;
-            padding: 12px 20px;
+            padding: 13px 20px;
         }
 
         .btn-whats-vendas i {
@@ -484,43 +480,37 @@
         .vendas-content {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             gap: 2px;
         }
 
         .vendas-main {
             font-size: 1.1rem;
             font-weight: 800;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
         .vendas-sub {
             font-size: 0.75rem;
             font-weight: 600;
-            opacity: 0.95;
+            opacity: 0.92;
         }
 
         /* Facilidades Premium */
         .facilidades-premium {
             background: linear-gradient(125deg, #0A2F5A, #134B7A);
-            border-radius: 32px;
+            border-radius: 28px;
             padding: 18px 16px;
-            margin: 8px 0 24px 0;
+            margin: 6px 0 22px 0;
             color: white;
             box-shadow: var(--shadow-flutuante);
             transition: all 0.3s;
-            animation: slideUp 0.6s ease;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .facilidades-premium h3 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             font-weight: 800;
             display: flex;
             align-items: center;
@@ -530,32 +520,32 @@
 
         .facilidades-premium h3 i {
             color: var(--ouro-brilho);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .grid-facilidades {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
         }
 
         .badge-facil {
             background: rgba(255,255,255,0.12);
             backdrop-filter: blur(8px);
-            padding: 8px 14px;
-            border-radius: 50px;
-            font-size: 0.75rem;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.7rem;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             transition: all 0.2s;
             border: 1px solid rgba(255,255,255,0.2);
         }
 
         .badge-facil i {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: var(--ouro-brilho);
         }
 
@@ -566,29 +556,29 @@
 
         .asterisco {
             text-align: center;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             margin-top: 10px;
-            opacity: 0.8;
+            opacity: 0.75;
         }
 
         /* Seção de Peças e Acessórios */
         .pecas-section {
             background: var(--branco-puro);
-            border-radius: 32px;
-            padding: 18px 16px;
-            margin: 20px 0 20px;
+            border-radius: 28px;
+            padding: 16px 16px;
+            margin: 18px 0 18px;
             box-shadow: var(--shadow-flutuante);
         }
 
         .titulo-central {
             text-align: center;
             font-weight: 800;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             background: linear-gradient(135deg, var(--azul-profundo), var(--vermelho-energia));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -598,7 +588,7 @@
         .grid-whats-central {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .whats-item-central {
@@ -609,39 +599,23 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            border: 1px solid rgba(0,119,255,0.15);
-            transition: all 0.3s;
-            animation: slideIn 0.5s ease backwards;
-        }
-
-        .whats-item-central:nth-child(1) { animation-delay: 0.05s; }
-        .whats-item-central:nth-child(2) { animation-delay: 0.1s; }
-        .whats-item-central:nth-child(3) { animation-delay: 0.15s; }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            border: 1px solid rgba(0,119,255,0.12);
+            transition: all 0.25s;
         }
 
         .whats-item-central:hover {
-            transform: translateX(6px);
+            transform: translateX(5px);
             border-color: var(--ouro-brilho);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
 
         .cidade-nome {
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--azul-profundo);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .btn-whats-solo {
@@ -650,55 +624,55 @@
             border-radius: 50px;
             color: white;
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             text-decoration: none;
             transition: all 0.2s;
-            box-shadow: 0 5px 12px rgba(37,211,102,0.3);
+            box-shadow: 0 3px 8px rgba(37,211,102,0.25);
         }
 
         .btn-whats-solo:active {
-            transform: scale(0.94);
+            transform: scale(0.95);
         }
 
         /* Aluguel Card */
         .aluguel-card {
             background: linear-gradient(95deg, #2C3E50, #1A2C3E);
-            border-radius: 28px;
-            padding: 16px;
-            margin: 16px 0;
+            border-radius: 26px;
+            padding: 14px;
+            margin: 14px 0;
             text-align: center;
             box-shadow: var(--shadow-flutuante);
-            transition: all 0.3s;
+            transition: all 0.25s;
         }
 
         .aluguel-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
         .aluguel-text {
             color: white;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .aluguel-text i {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: var(--ouro-brilho);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             display: inline-block;
         }
 
         .aluguel-text strong {
-            font-size: 1rem;
+            font-size: 0.95rem;
             display: block;
-            margin: 6px 0;
+            margin: 4px 0;
         }
 
         .aluguel-text span {
-            font-size: 0.7rem;
-            opacity: 0.9;
+            font-size: 0.65rem;
+            opacity: 0.85;
         }
 
         .btn-aluguel {
@@ -707,18 +681,17 @@
             justify-content: center;
             gap: 8px;
             background: #25D366;
-            padding: 10px 24px;
-            border-radius: 60px;
+            padding: 9px 24px;
+            border-radius: 50px;
             color: white;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-decoration: none;
             transition: all 0.2s;
-            margin-top: 6px;
         }
 
         .btn-aluguel i {
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .btn-aluguel:active {
@@ -727,33 +700,33 @@
 
         /* Galeria */
         .galeria-interativa {
-            margin: 24px 0 16px;
+            margin: 20px 0 14px;
         }
 
         .galeria-titulo {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-align: center;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             color: var(--azul-profundo);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .grid-fotos {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 10px;
         }
 
         .foto-card {
-            border-radius: 24px;
+            border-radius: 22px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
             aspect-ratio: 1 / 0.9;
         }
 
@@ -761,19 +734,19 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: transform 0.4s ease;
         }
 
         .foto-card:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 18px 28px rgba(0,0,0,0.2);
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 12px 22px rgba(0,0,0,0.15);
         }
 
         .foto-card:hover img {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
 
-        /* Modal */
+        /* Modal imagem */
         .modal {
             display: none;
             position: fixed;
@@ -781,7 +754,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.92);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -791,73 +764,73 @@
         .modal img {
             max-width: 90%;
             max-height: 90%;
-            border-radius: 24px;
-            animation: zoomIn 0.3s;
+            border-radius: 20px;
+            animation: zoomIn 0.25s;
         }
 
         @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
+            from { transform: scale(0.9); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
 
         /* Diferenciais */
         .diferenciais {
             background: linear-gradient(125deg, var(--azul-profundo), #0A3F6E);
-            border-radius: 28px;
-            padding: 18px;
-            margin: 20px 0 16px;
+            border-radius: 26px;
+            padding: 16px;
+            margin: 18px 0 14px;
             color: white;
             box-shadow: var(--shadow-flutuante);
         }
 
         .diferenciais h3 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-align: center;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             font-weight: 800;
         }
 
         .badge-diferencial {
             display: flex;
             align-items: center;
-            gap: 10px;
-            background: rgba(255,255,255,0.12);
-            padding: 10px 14px;
-            border-radius: 60px;
-            margin-bottom: 10px;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 12px;
+            border-radius: 50px;
+            margin-bottom: 8px;
             backdrop-filter: blur(4px);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
 
         .horario {
             text-align: center;
             background: #F0F4FA;
-            padding: 12px;
-            border-radius: 40px;
+            padding: 10px;
+            border-radius: 35px;
             font-weight: 600;
-            font-size: 0.8rem;
-            margin: 12px 0;
+            font-size: 0.75rem;
+            margin: 10px 0;
         }
 
         .footer {
             text-align: center;
-            font-size: 0.65rem;
-            padding: 14px;
-            color: #5C6F87;
+            font-size: 0.6rem;
+            padding: 12px;
+            color: #6c7e92;
         }
 
         .credits {
             text-align: center;
-            font-size: 0.55rem;
-            color: #8A99AA;
-            margin-top: 6px;
-            padding-top: 6px;
+            font-size: 0.5rem;
+            color: #9aabbc;
+            margin-top: 5px;
+            padding-top: 5px;
             border-top: 1px solid rgba(0,0,0,0.05);
         }
 
         @media (min-width: 550px) {
-            .app-container { max-width: 520px; }
-            .logo { max-width: 280px; width: 85%; }
+            .app-container { max-width: 500px; }
+            .logo { max-width: 310px; width: 90%; }
         }
     </style>
 </head>
@@ -865,7 +838,7 @@
 <body>
 
 <div class="app-container">
-    <!-- FAIXA DE PROMOÇÃO NO TOPO -->
+    <!-- FAIXA DE PROMOÇÃO - Degradê suave e cantos arredondados -->
     <div class="promo-ribbon" onclick="abrirPromocoes()">
         <div class="promo-ribbon-content">
             <i class="fas fa-fire"></i>
@@ -884,7 +857,7 @@
             <i class="fas fa-gem"></i> MAIS DE 25 ANOS DE TRADIÇÃO
         </div>
         <div class="hero-text-impact">
-            <p><i class="fas fa-trophy"></i> O MAIOR E MAIS COMPLETO ESTOQUE DE MOTOS DA REGIÃO!</p>
+            <p><i class="fas fa-trophy"></i> O MAIOR ESTOQUE DE MOTOS DA REGIÃO!</p>
         </div>
         <div class="hero-sub">
             Venda de Motos, Carros e Quadriciclos
@@ -892,7 +865,7 @@
     </div>
 
     <div class="main-content">
-        <!-- Botões principais -->
+        <!-- Botões principais - Centralizados e maiores -->
         <div class="double-actions">
             <a href="http://www.ouromotos.com.br" class="btn-motion" target="_blank">
                 <i class="fas fa-motorcycle"></i> VER ESTOQUE COMPLETO
@@ -960,7 +933,7 @@
             </div>
         </div>
 
-        <!-- ALUGUEL - ALUGAR VEÍCULO -->
+        <!-- ALUGUEL -->
         <div class="aluguel-card">
             <div class="aluguel-text">
                 <i class="fas fa-key"></i>
@@ -977,23 +950,23 @@
             <h3><i class="fas fa-crown"></i> POR QUE ESCOLHER A OURO MOTOS?</h3>
             <div class="badge-diferencial"><i class="fas fa-boxes"></i> ✅ Maior estoque de motos da região</div>
             <div class="badge-diferencial"><i class="fas fa-handshake"></i> ✅ 25+ anos de tradição e credibilidade</div>
-            <div class="badge-diferencial"><i class="fas fa-exchange-alt"></i> ✅ Pegamos seu veículo usado na troca (moto ou carro)</div>
+            <div class="badge-diferencial"><i class="fas fa-exchange-alt"></i> ✅ Pegamos seu veículo usado na troca</div>
             <div class="badge-diferencial"><i class="fas fa-motorcycle"></i> ✅ Venda de motos, carros e quadriciclos</div>
             <div class="badge-diferencial"><i class="fas fa-calendar-alt"></i> ✅ Aluguel de motos e carros</div>
         </div>
 
-        <!-- Horário de atendimento -->
+        <!-- Horário -->
         <div class="horario">
             <i class="far fa-clock"></i> ATENDIMENTO: SEG a SEX 8h–18h | SÁB 8h–12h
         </div>
 
         <!-- Localização -->
-        <a href="https://www.google.com/maps/search/Ouro+Motos+MG" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #1F2E3E; color: white; padding: 12px; border-radius: 60px; text-decoration: none; font-weight: 700; font-size: 0.85rem; margin: 14px 0 8px;" target="_blank">
+        <a href="https://www.google.com/maps/search/Ouro+Motos+MG" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #1F2E3E; color: white; padding: 11px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.8rem; margin: 12px 0 6px;" target="_blank">
             <i class="fas fa-map-marker-alt"></i> ENCONTRAR LOJA MAIS PRÓXIMA
         </a>
 
         <div class="footer">
-            <i class="fas fa-motorcycle"></i> Ouro Motos — Potência, confiança e o melhor negócio para você
+            <i class="fas fa-motorcycle"></i> Ouro Motos — Potência, confiança e o melhor negócio
         </div>
         <div class="credits">
             Feito por @murta.visual
