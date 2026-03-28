@@ -39,13 +39,11 @@
             --text-xs: 0.7rem;
             --text-sm: 0.85rem;
             --text-md: 1rem;
-            --text-lg: 1.2rem;
-            --text-xl: 1.5rem;
-            --text-2xl: 1.6rem;
+            --text-lg: 1.1rem;
+            --text-xl: 1.2rem;
             --font-medium: 500;
             --font-semibold: 600;
             --font-bold: 700;
-            --font-extrabold: 800;
         }
         
         * {
@@ -157,8 +155,8 @@
         }
         
         .logo {
-            max-width: 300px;
-            width: 80%;
+            max-width: 280px;
+            width: 78%;
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
             display: block;
             transition: transform 0.2s ease;
@@ -192,14 +190,14 @@
             font-size: var(--text-sm);
         }
         
-        /* Título principal - MESMO ESTILO DO SELO (caixinha com fundo cinza, cantos arredondados) */
+        /* Título principal - UMA LINHA, SEM NEGRITO, MESMO ESTILO DA CAIXINHA */
         .hero-title-box {
             position: relative;
             z-index: 2;
             display: inline-block;
             background: rgba(0, 0, 0, 0.45);
             backdrop-filter: blur(8px);
-            padding: 12px 24px;
+            padding: 8px 20px;
             border-radius: var(--radius-pill);
             margin-bottom: 16px;
             border: 1px solid var(--color-accent);
@@ -207,16 +205,18 @@
         
         .hero-title {
             font-family: var(--font-base);
-            font-size: var(--text-2xl);
-            font-weight: var(--font-extrabold);
-            line-height: 1.2;
-            letter-spacing: -0.5px;
+            font-size: var(--text-lg);
+            font-weight: var(--font-medium);
+            line-height: 1.3;
+            letter-spacing: normal;
             color: var(--color-text-light);
             margin: 0;
+            white-space: nowrap;
         }
         
         .hero-title .destaque {
             color: var(--color-accent);
+            font-weight: var(--font-medium);
         }
         
         /* Subtítulo */
@@ -308,7 +308,7 @@
         
         .card-title {
             font-size: var(--text-md);
-            font-weight: var(--font-extrabold);
+            font-weight: var(--font-bold);
             text-align: center;
             margin-bottom: var(--sp-2);
             display: flex;
@@ -368,7 +368,7 @@
         
         .section-title {
             text-align: center;
-            font-weight: var(--font-extrabold);
+            font-weight: var(--font-bold);
             font-size: var(--text-md);
             background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
             -webkit-background-clip: text;
@@ -406,7 +406,7 @@
         }
         
         .city-name {
-            font-weight: var(--font-bold);
+            font-weight: var(--font-semibold);
             font-size: var(--text-sm);
             color: var(--color-primary);
             display: flex;
@@ -595,7 +595,7 @@
             font-size: var(--text-md);
             text-align: center;
             margin-bottom: var(--sp-2);
-            font-weight: var(--font-extrabold);
+            font-weight: var(--font-bold);
         }
         
         .badge-diferencial {
@@ -780,7 +780,7 @@
         
         .promo-header h2 {
             font-size: var(--text-lg);
-            font-weight: var(--font-extrabold);
+            font-weight: var(--font-bold);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -878,18 +878,18 @@
                 width: 80%;
             }
             .hero-title {
-                font-size: 1.3rem;
+                font-size: var(--text-md);
             }
             .hero-title-box {
-                padding: 10px 18px;
+                padding: 6px 16px;
             }
             .hero-badge {
                 font-size: var(--text-xs);
                 padding: 6px 16px;
             }
             .logo {
-                max-width: 260px;
-                width: 85%;
+                max-width: 240px;
+                width: 82%;
             }
         }
     </style>
@@ -919,10 +919,10 @@
             <i class="fas fa-trophy"></i> 25 ANOS DE CONFIANÇA
         </div>
         
-        <!-- Título principal com caixinha no mesmo estilo -->
+        <!-- Título principal - UMA LINHA, SEM NEGRITO, MESMA CAIXINHA -->
         <div class="hero-title-box">
             <h1 class="hero-title">
-                O maior estoque de <span class="destaque">motos</span><br>da região.
+                O maior estoque de <span class="destaque">motos</span> da região.
             </h1>
         </div>
         
