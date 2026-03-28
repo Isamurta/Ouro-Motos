@@ -1,6 +1,3 @@
-Perfeito! Vou corrigir exatamente como você pediu: remover qualquer caixa do título principal, deixar apenas texto limpo com text-shadow, ajustar o selo e alinhar tudo corretamente.
-
-```html
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -44,7 +41,7 @@ Perfeito! Vou corrigir exatamente como você pediu: remover qualquer caixa do t�
             --text-md: 1rem;
             --text-lg: 1.2rem;
             --text-xl: 1.5rem;
-            --text-2xl: 2rem;
+            --text-2xl: 1.8rem;
             --font-medium: 500;
             --font-semibold: 600;
             --font-bold: 700;
@@ -120,7 +117,7 @@ Perfeito! Vou corrigir exatamente como você pediu: remover qualquer caixa do t�
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, var(--color-primary) 0%, #0A3B6E 50%, var(--color-secondary) 100%);
-            padding: var(--sp-2) var(--sp-2) var(--sp-3);
+            padding: var(--sp-2) var(--sp-2) var(--sp-2);
             text-align: center;
             overflow: hidden;
         }
@@ -132,15 +129,15 @@ Perfeito! Vou corrigir exatamente como você pediu: remover qualquer caixa do t�
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.28;
+            opacity: 0.25;
             mix-blend-mode: overlay;
         }
         
-        /* Logo */
+        /* Logo aumentada */
         .logo-container {
             position: relative;
             z-index: 2;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             display: flex;
             justify-content: center;
         }
@@ -153,15 +150,15 @@ Perfeito! Vou corrigir exatamente como você pediu: remover qualquer caixa do t�
             transform: translate(-50%, -50%);
             width: 95%;
             height: 95%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%);
             border-radius: 50%;
             filter: blur(10px);
             z-index: -1;
         }
         
         .logo {
-            max-width: 300px;
-            width: 80%;
+            max-width: 340px;
+            width: 88%;
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
             display: block;
             transition: transform 0.2s ease;
@@ -171,46 +168,47 @@ Perfeito! Vou corrigir exatamente como você pediu: remover qualquer caixa do t�
             transform: scale(1.01);
         }
         
-        /* Selo de 25 anos - estilo vidro transparente + borda amarela */
+        /* Badge com 25 anos de confiança - aumentado */
         .hero-badge {
             position: relative;
             z-index: 2;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: rgba(0, 0, 0, 0.45);
+            gap: 10px;
+            background: rgba(0,0,0,0.5);
             backdrop-filter: blur(8px);
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: var(--radius-pill);
-            margin-bottom: 20px;
-            font-size: var(--text-sm);
-            font-weight: var(--font-semibold);
+            margin-bottom: 12px;
+            font-size: var(--text-md);
+            font-weight: var(--font-bold);
             color: var(--color-text-light);
             border: 1px solid var(--color-accent);
         }
         
         .hero-badge i {
             color: var(--color-accent);
-            font-size: var(--text-sm);
+            font-size: var(--text-md);
         }
         
-        /* Título principal - APENAS TEXTO LIMPO, SEM CAIXA */
-        .hero-title {
+        /* Headline principal - SEM BACKGROUND, apenas text-shadow */
+        .hero-headline {
             position: relative;
             z-index: 2;
             font-family: var(--font-base);
             font-size: var(--text-2xl);
             font-weight: var(--font-extrabold);
             line-height: 1.2;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             letter-spacing: -0.5px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            background: transparent;
             color: var(--color-text-light);
         }
         
-        .hero-title .destaque {
+        .hero-headline .highlight {
             color: var(--color-accent);
+            background: transparent;
         }
         
         /* Subtítulo */
@@ -220,8 +218,8 @@ Perfeito! Vou corrigir exatamente como você pediu: remover qualquer caixa do t�
             font-family: var(--font-base);
             font-size: var(--text-sm);
             font-weight: var(--font-medium);
-            color: rgba(255, 255, 255, 0.95);
-            background: rgba(0, 0, 0, 0.35);
+            color: rgba(255,255,255,0.95);
+            background: rgba(0,0,0,0.35);
             backdrop-filter: blur(4px);
             padding: 5px 18px;
             border-radius: var(--radius-pill);
@@ -871,16 +869,16 @@ Perfeito! Vou corrigir exatamente como você pediu: remover qualquer caixa do t�
             .carrossel-item {
                 width: 80%;
             }
-            .hero-title {
-                font-size: 1.6rem;
+            .hero-headline {
+                font-size: 1.5rem;
             }
             .hero-badge {
-                font-size: var(--text-xs);
-                padding: 6px 16px;
+                font-size: var(--text-sm);
+                padding: 6px 18px;
             }
             .logo {
-                max-width: 260px;
-                width: 85%;
+                max-width: 300px;
+                width: 90%;
             }
         }
     </style>
@@ -905,14 +903,14 @@ Perfeito! Vou corrigir exatamente como você pediu: remover qualquer caixa do t�
             <img src="logo.png" alt="Ouro Motos" class="logo" onerror="this.src='https://placehold.co/500x150/FFFFFF/0A2F5A?text=OURO+MOTOS'">
         </div>
         
-        <!-- Selo de 25 anos - vidro transparente + borda amarela -->
+        <!-- Badge com 25 anos de confiança - aumentado -->
         <div class="hero-badge">
-            <i class="fas fa-trophy"></i> MAIS DE 25 ANOS DE TRADIÇÃO
+            <i class="fas fa-trophy"></i> 25 ANOS DE CONFIANÇA
         </div>
         
-        <!-- Título principal - APENAS TEXTO LIMPO, SEM CAIXA -->
-        <h1 class="hero-title">
-            O maior estoque de <span class="destaque">motos</span><br>da região.
+        <!-- Headline principal - SEM BACKGROUND, apenas text-shadow -->
+        <h1 class="hero-headline">
+            O maior estoque de <span class="highlight">motos</span><br>da região.
         </h1>
         
         <!-- Subtítulo -->
@@ -1109,4 +1107,3 @@ Perfeito! Vou corrigir exatamente como você pediu: remover qualquer caixa do t�
 
 </body>
 </html>
-```
