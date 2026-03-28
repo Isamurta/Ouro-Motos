@@ -117,7 +117,7 @@
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, var(--color-primary) 0%, #0A3B6E 50%, var(--color-secondary) 100%);
-            padding: var(--sp-2) var(--sp-2) var(--sp-2);
+            padding: var(--sp-2) var(--sp-2) var(--sp-3);
             text-align: center;
             overflow: hidden;
         }
@@ -129,15 +129,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.25;
+            opacity: 0.28;
             mix-blend-mode: overlay;
         }
         
-        /* Logo aumentada */
+        /* Logo */
         .logo-container {
             position: relative;
             z-index: 2;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             display: flex;
             justify-content: center;
         }
@@ -150,15 +150,15 @@
             transform: translate(-50%, -50%);
             width: 95%;
             height: 95%;
-            background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
             border-radius: 50%;
             filter: blur(10px);
             z-index: -1;
         }
         
         .logo {
-            max-width: 340px;
-            width: 88%;
+            max-width: 300px;
+            width: 80%;
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
             display: block;
             transition: transform 0.2s ease;
@@ -168,47 +168,46 @@
             transform: scale(1.01);
         }
         
-        /* Badge com 25 anos de confiança - aumentado */
+        /* Selo de 25 anos - estilo vidro transparente + borda amarela */
         .hero-badge {
             position: relative;
             z-index: 2;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.45);
             backdrop-filter: blur(8px);
-            padding: 8px 22px;
+            padding: 8px 20px;
             border-radius: var(--radius-pill);
-            margin-bottom: 12px;
-            font-size: var(--text-md);
-            font-weight: var(--font-bold);
+            margin-bottom: 16px;
+            font-size: var(--text-sm);
+            font-weight: var(--font-semibold);
             color: var(--color-text-light);
             border: 1px solid var(--color-accent);
         }
         
         .hero-badge i {
             color: var(--color-accent);
-            font-size: var(--text-md);
+            font-size: var(--text-sm);
         }
         
-        /* Headline principal - SEM BACKGROUND, apenas text-shadow */
-        .hero-headline {
+        /* Título principal - APENAS TEXTO LIMPO, SEM CAIXA */
+        .hero-title {
             position: relative;
             z-index: 2;
             font-family: var(--font-base);
             font-size: var(--text-2xl);
             font-weight: var(--font-extrabold);
             line-height: 1.2;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             letter-spacing: -0.5px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-            background: transparent;
             color: var(--color-text-light);
         }
         
-        .hero-headline .highlight {
+        .hero-title .destaque {
             color: var(--color-accent);
-            background: transparent;
         }
         
         /* Subtítulo */
@@ -218,8 +217,8 @@
             font-family: var(--font-base);
             font-size: var(--text-sm);
             font-weight: var(--font-medium);
-            color: rgba(255,255,255,0.95);
-            background: rgba(0,0,0,0.35);
+            color: rgba(255, 255, 255, 0.95);
+            background: rgba(0, 0, 0, 0.35);
             backdrop-filter: blur(4px);
             padding: 5px 18px;
             border-radius: var(--radius-pill);
@@ -869,16 +868,16 @@
             .carrossel-item {
                 width: 80%;
             }
-            .hero-headline {
+            .hero-title {
                 font-size: 1.5rem;
             }
             .hero-badge {
-                font-size: var(--text-sm);
-                padding: 6px 18px;
+                font-size: var(--text-xs);
+                padding: 6px 16px;
             }
             .logo {
-                max-width: 300px;
-                width: 90%;
+                max-width: 260px;
+                width: 85%;
             }
         }
     </style>
@@ -903,14 +902,14 @@
             <img src="logo.png" alt="Ouro Motos" class="logo" onerror="this.src='https://placehold.co/500x150/FFFFFF/0A2F5A?text=OURO+MOTOS'">
         </div>
         
-        <!-- Badge com 25 anos de confiança - aumentado -->
+        <!-- Selo de 25 anos - vidro transparente + borda amarela -->
         <div class="hero-badge">
             <i class="fas fa-trophy"></i> 25 ANOS DE CONFIANÇA
         </div>
         
-        <!-- Headline principal - SEM BACKGROUND, apenas text-shadow -->
-        <h1 class="hero-headline">
-            O maior estoque de <span class="highlight">motos</span><br>da região.
+        <!-- Título principal - APENAS TEXTO LIMPO, logo abaixo do selo -->
+        <h1 class="hero-title">
+            O maior estoque de <span class="destaque">motos</span><br>da região.
         </h1>
         
         <!-- Subtítulo -->
