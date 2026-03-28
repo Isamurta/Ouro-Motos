@@ -4,17 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title> Ouro Motos | O maior estoque de motos da região</title>
+    <title>🏍️ Ouro Motos | O maior estoque de motos da região</title>
     
-    <!-- ========== FAVICON PERSONALIZADO ========== -->
-    <!-- Favicon para navegadores modernos (formato SVG) -->
+    <!-- Favicon personalizado -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23E3221F' stroke='%23F5A623' stroke-width='4'/%3E%3Ctext x='50' y='70' font-size='48' text-anchor='middle' fill='%23FFFFFF' font-weight='bold' font-family='Arial, sans-serif'%3EOM%3C/text%3E%3C/svg%3E">
-    
-    <!-- Favicon alternativo para navegadores antigos (formato PNG base64) -->
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHHSURBVHgB7Zs9TgJBFMd/M7FQEjVWegK9gBZ4ATwBO9rYUEh0O4InAAvxFvoJ3sDSyoKOhmgjobAgWWMi2bBmZpZPhPAmyc7svP37zeybWQAhhBBCpMN/AP8HEL2uPoyPJOLiY/n+Eun7pZgRZgJAA0ADuCYrP6/eis8ST9sBvgbzPsD1gvX/hZ1/GJY2wOcE8gvPZ50Z+QNgGeBxhv1jRr4DLAM8zLB/zMg3gGWAhxn2jxn5BrAM8DDD/jEj3wCWAR5m2D9m5BvAMsDDDPvHjHwDWAZ4mGH/mJFvAMsADzPsHzPyDWAZ4GGG/WNGvgEsAzzMsH/MyDeAZYCHGfaPGfkGsAzwMMP+MSPfAJYBHmbYP2bkG8AywMMM+8eMfANYBniYYf+YkW8AywAPM+wfM/INYBngYYb9Y0a+ASwDPMywf8zIN4BlgIcZ9o8Z+QawDPAww/4xI98AlgEeZtg/ZuQbwDLAwwz7x4x8A1gGeJhh/5iRbwDLAA8z7B8z8g1gGeBhhv1jRr4BLAM8zLB/zMg3gGWAhxn2jxn5BrAM8DDD/jEj3wCWAR5m2D9m5BvAMsDDDPvHjHwDWAZ4mGH/mJFvAMsADzPsHzPyDWAZ4GGG/WNGvgEsAzzMsH/MyDeAZYCHGfaPGfkGsAzwMMP+MSPfAJYB3p1va88oHmUEIgkAAAAASUVORK5CYII=">
-    
-    <!-- Apple Touch Icon (para iOS) -->
     <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23E3221F' stroke='%23F5A623' stroke-width='4'/%3E%3Ctext x='50' y='70' font-size='48' text-anchor='middle' fill='%23FFFFFF' font-weight='bold' font-family='Arial, sans-serif'%3EOM%3C/text%3E%3C/svg%3E">
+    
+    <!-- Font Awesome 6 (versão mais estável) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -726,13 +724,13 @@
             border-top: 1px solid rgba(0,0,0,0.05);
         }
         
-        /* ========== BOTÃO FLUTUANTE WHATSAPP ========== */
+        /* ========== BOTÃO FLUTUANTE WHATSAPP COM ÍCONE GARANTIDO ========== */
         .fab-whatsapp {
             position: fixed;
             bottom: 24px;
             right: 20px;
-            width: 56px;
-            height: 56px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, #25D366, #128C7E);
             border-radius: 50%;
             display: flex;
@@ -740,11 +738,16 @@
             justify-content: center;
             text-decoration: none;
             color: white;
-            font-size: 1.8rem;
+            font-size: 2rem;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
             z-index: 1000;
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
+        }
+        
+        .fab-whatsapp i {
+            font-size: 2rem;
+            color: white;
         }
         
         .fab-whatsapp:hover {
@@ -963,6 +966,14 @@
             .feirao-destaque h3 {
                 font-size: 1rem;
             }
+            .fab-whatsapp {
+                width: 52px;
+                height: 52px;
+                font-size: 1.8rem;
+            }
+            .fab-whatsapp i {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -1130,7 +1141,7 @@
     </div>
 </div>
 
-<!-- Botão Flutuante WhatsApp Fixo -->
+<!-- Botão Flutuante WhatsApp Fixo com Ícone Garantido -->
 <a href="https://wa.me/5531987512118?text=Olá,%20gostaria%20de%20saber%20mais%20informações%20sobre%20a%20venda%20de%20veículos." class="fab-whatsapp" target="_blank" rel="noopener noreferrer">
     <i class="fab fa-whatsapp"></i>
 </a>
