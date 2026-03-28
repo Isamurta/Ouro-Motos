@@ -1,3 +1,6 @@
+Perfeito! Agora entendi! Você quer que o título "O maior estoque de motos da região" também tenha a mesma caixinha com fundo cinza escuro/transparente e cantos arredondados, igual ao selo "25 ANOS DE CONFIANÇA". Vou ajustar exatamente assim.
+
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -41,7 +44,7 @@
             --text-md: 1rem;
             --text-lg: 1.2rem;
             --text-xl: 1.5rem;
-            --text-2xl: 1.8rem;
+            --text-2xl: 1.6rem;
             --font-medium: 500;
             --font-semibold: 600;
             --font-bold: 700;
@@ -137,7 +140,7 @@
         .logo-container {
             position: relative;
             z-index: 2;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             display: flex;
             justify-content: center;
         }
@@ -192,18 +195,27 @@
             font-size: var(--text-sm);
         }
         
-        /* Título principal - APENAS TEXTO LIMPO, SEM CAIXA */
-        .hero-title {
+        /* Título principal - MESMO ESTILO DO SELO (caixinha com fundo cinza, cantos arredondados) */
+        .hero-title-box {
             position: relative;
             z-index: 2;
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(8px);
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 16px;
+            border: 1px solid var(--color-accent);
+        }
+        
+        .hero-title {
             font-family: var(--font-base);
             font-size: var(--text-2xl);
             font-weight: var(--font-extrabold);
             line-height: 1.2;
-            margin-bottom: 16px;
             letter-spacing: -0.5px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
             color: var(--color-text-light);
+            margin: 0;
         }
         
         .hero-title .destaque {
@@ -869,7 +881,10 @@
                 width: 80%;
             }
             .hero-title {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+            }
+            .hero-title-box {
+                padding: 10px 18px;
             }
             .hero-badge {
                 font-size: var(--text-xs);
@@ -907,10 +922,12 @@
             <i class="fas fa-trophy"></i> 25 ANOS DE CONFIANÇA
         </div>
         
-        <!-- Título principal - APENAS TEXTO LIMPO, logo abaixo do selo -->
-        <h1 class="hero-title">
-            O maior estoque de <span class="destaque">motos</span><br>da região.
-        </h1>
+        <!-- Título principal - MESMO ESTILO DO SELO (caixinha com fundo cinza, cantos arredondados) -->
+        <div class="hero-title-box">
+            <h1 class="hero-title">
+                O maior estoque de <span class="destaque">motos</span><br>da região.
+            </h1>
+        </div>
         
         <!-- Subtítulo -->
         <div class="hero-sub">
@@ -1106,3 +1123,4 @@
 
 </body>
 </html>
+```
