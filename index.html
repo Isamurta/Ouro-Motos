@@ -310,6 +310,48 @@
             font-weight: var(--font-bold);
         }
         
+        /* ========== FEIRÃO DESTAQUE - CARD ANIMADO ========== */
+        .feirao-destaque {
+            background: linear-gradient(135deg, var(--color-secondary), #b31614);
+            border-radius: var(--radius-card);
+            padding: var(--sp-2);
+            margin-bottom: var(--sp-3);
+            color: var(--color-text-light);
+            text-align: center;
+            border: 2px solid var(--color-accent);
+            box-shadow: 0 0 15px rgba(227, 34, 31, 0.4);
+            animation: pulsarFeirao 2s infinite;
+        }
+        
+        .feirao-tag {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-primary-dark);
+            font-size: var(--text-xs);
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .feirao-destaque h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        
+        .feirao-destaque p {
+            font-size: var(--text-sm);
+            opacity: 0.95;
+        }
+        
+        @keyframes pulsarFeirao {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); box-shadow: 0 0 20px rgba(245, 166, 35, 0.6); }
+            100% { transform: scale(1); }
+        }
+        
         /* Cards de facilidades */
         .card {
             background: linear-gradient(125deg, var(--color-primary), #134B7A);
@@ -909,6 +951,9 @@
                 letter-spacing: 0.5px;
                 padding: 6px 10px;
             }
+            .feirao-destaque h3 {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -966,6 +1011,18 @@
                 <span>Falar com Vendedor</span>
             </a>
         </div>
+
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+        <!-- >>>>>> CARD DO FEIRÃO - REMOVER APÓS O EVENTO (11-12/04) >>>>>> -->
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+        <div class="feirao-destaque">
+            <div class="feirao-tag">🚨 PRESENÇA CONFIRMADA</div>
+            <h3>2º Feirão de Veículos de Mariana</h3>
+            <p>Dias 11 e 12 de Abril no Terminal Rodoviário. Condições exclusivas no nosso estande!</p>
+        </div>
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+        <!-- >>>>>> FIM DO CARD DO FEIRÃO - REMOVER APÓS O EVENTO >>>>>>>>>> -->
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
         <!-- Facilidades -->
         <div class="card">
